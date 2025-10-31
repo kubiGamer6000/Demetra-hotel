@@ -1,0 +1,226 @@
+{
+  "hero": {
+    "location": {
+      "bg": "Берковица, България",
+      "en": "Berkovitsa, Bulgaria"
+    },
+    "title": {
+      "bg": "Модерен комфорт и елегантност",
+      "en": "Modern Comfort & Elegance"
+    },
+    "description": {
+      "bg": "Открийте съвременен лукс и изтънчен стил в сърцето на Берковица. Нашият хотел съчетава модерни удобства с автентично българско гостоприемство.",
+      "en": "Discover contemporary luxury and refined style in the heart of Berkovitsa. Our hotel combines modern amenities with authentic Bulgarian hospitality."
+    }
+  },
+  "features": {
+    "title": {
+      "bg": "Удобства в стаите",
+      "en": "Room Amenities"
+    },
+    "subtitle": {
+      "bg": "Всяка стая е внимателно проектирана, за да осигури максимален комфорт по време на вашия престой",
+      "en": "Each room is carefully designed to ensure maximum comfort during your stay"
+    },
+    "items": {
+      "comfort": {
+        "title": {
+          "bg": "Луксозни легла",
+          "en": "Luxury Beds"
+        },
+        "description": {
+          "bg": "Висококачествени матраци и спално бельо за спокоен сън",
+          "en": "High-quality mattresses and bedding for peaceful sleep"
+        }
+      },
+      "bathroom": {
+        "title": {
+          "bg": "Модерна баня",
+          "en": "Modern Bathroom"
+        },
+        "description": {
+          "bg": "Просторна баня с душ кабина и луксозни тоалетни принадлежности",
+          "en": "Spacious bathroom with shower cabin and luxury toiletries"
+        }
+      },
+      "minibar": {
+        "title": {
+          "bg": "Минибар",
+          "en": "Minibar"
+        },
+        "description": {
+          "bg": "Зареден с разнообразие от напитки и леки закуски",
+          "en": "Stocked with a variety of beverages and light snacks"
+        }
+      },
+      "wifi": {
+        "title": {
+          "bg": "Безплатен Wi-Fi",
+          "en": "Free Wi-Fi"
+        },
+        "description": {
+          "bg": "Високоскоростен интернет във всички помещения",
+          "en": "High-speed internet throughout the premises"
+        }
+      },
+      "tv": {
+        "title": {
+          "bg": "Smart TV",
+          "en": "Smart TV"
+        },
+        "description": {
+          "bg": "Телевизор с плосък екран и сателитни канали",
+          "en": "Flat-screen TV with satellite channels"
+        }
+      },
+      "climate": {
+        "title": {
+          "bg": "Климатик",
+          "en": "Air Conditioning"
+        },
+        "description": {
+          "bg": "Индивидуален климатичен контрол във всяка стая",
+          "en": "Individual climate control in each room"
+        }
+      }
+    }
+  },
+  "rooms": {
+    "title": {
+      "bg": "Нашите стаи",
+      "en": "Our Rooms"
+    },
+    "subtitle": {
+      "bg": "Изберете перфектната стая за вашия престой",
+      "en": "Choose the perfect room for your stay"
+    },
+    "viewDetails": {
+      "bg": "РАЗГЛЕДАЙТЕ ДЕТАЙЛИ",
+      "en": "VIEW DETAILS"
+    },
+    "book": {
+      "bg": "РЕЗЕРВИРАЙТЕ СЕГА",
+      "en": "BOOK NOW"
+    },
+    "perNight": {
+      "bg": "на нощ",
+      "en": "per night"
+    },
+    "persons": {
+      "bg": "души",
+      "en": "persons"
+    },
+    "includedBreakfast": {
+      "bg": "Включена закуска",
+      "en": "Breakfast included"
+    },
+    "includedJacuzzi": {
+      "bg": "Включен достъп до джакузи",
+      "en": "Jacuzzi access included"
+    },
+    "saunaNote": {
+      "bg": "* Достъпът до сауна се заявява предварително и се заплаща допълнително.",
+      "en": "* Sauna access is available upon request for an additional fee."
+    },
+    "views": {
+      "garden": {
+        "bg": "Градина",
+        "en": "Garden"
+      },
+      "mountain": {
+        "bg": "Планина",
+        "en": "Mountain"
+      },
+      "panoramic": {
+        "bg": "Панорама",
+        "en": "Panoramic"
+      }
+    },
+    "types": {
+      "standard": {
+        "title": {
+          "bg": "Стандартна стая",
+          "en": "Standard Room"
+        },
+        "description": {
+          "bg": "Уютна стая с всички необходими удобства за комфортен престой",
+          "en": "Cozy room with all necessary amenities for a comfortable stay"
+        },
+        "price": {
+          "bg": "180",
+          "en": "180"
+        },
+        "benefits": {
+          "1": {
+            "bg": "Безплатен Wi-Fi и кабелна телевизия",
+            "en": "Free Wi-Fi and cable TV"
+          },
+          "2": {
+            "bg": "Ежедневно почистване и смяна на кърпи",
+            "en": "Daily housekeeping and fresh towels"
+          },
+          "3": {
+            "bg": "Климатик и минибар",
+            "en": "Air conditioning and minibar"
+          }
+        }
+      },
+      "deluxe": {
+        "title": {
+          "bg": "Делукс стая",
+          "en": "Deluxe Room"
+        },
+        "description": {
+          "bg": "Просторна стая с допълнителни удобства и красива гледка",
+          "en": "Spacious room with additional amenities and beautiful view"
+        },
+        "price": {
+          "bg": "240",
+          "en": "240"
+        },
+        "benefits": {
+          "1": {
+            "bg": "Халати за баня",
+            "en": "Bathrobes"
+          },
+          "2": {
+            "bg": "Премиум тоалетни принадлежности",
+            "en": "Premium toiletries"
+          },
+          "3": {
+            "bg": "Кафе машина и чай",
+            "en": "Coffee machine and tea"
+          }
+        }
+      },
+      "suite": {
+        "title": {
+          "bg": "Апартамент",
+          "en": "Suite"
+        },
+        "description": {
+          "bg": "Луксозен апартамент с отделна всекидневна и панорамна гледка",
+          "en": "Luxury suite with separate living room and panoramic view"
+        },
+        "price": {
+          "bg": "320",
+          "en": "320"
+        },
+        "benefits": {
+          "1": {
+            "bg": "VIP спа достъп",
+            "en": "VIP spa access"
+          },
+          "2": {
+            "bg": "Частен балкон с изглед към планината",
+            "en": "Private balcony with mountain view"
+          },
+          "3": {
+            "bg": "Приветствено шампанско",
+            "en": "Welcome champagne"
+          }
+        }
+      }
+    }
+  }
+}

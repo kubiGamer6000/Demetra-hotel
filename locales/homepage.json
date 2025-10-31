@@ -1,0 +1,318 @@
+{
+  "hero": {
+    "subtitle": {
+      "bg": "Релакс хотел и ресторант",
+      "en": "Relax Hotel & Restaurant"
+    },
+    "title": {
+      "bg": "ДЕМЕТРА",
+      "en": "DEMETRA"
+    },
+    "quote": {
+      "bg": "Спокойствие и комфорт в прегръдката на Берковския Балкан",
+      "en": "Tranquility and comfort in the embrace of the Berkovitsa Balkan"
+    },
+    "buttons": {
+      "reserve": {
+        "bg": "РЕЗЕРВИРАЙТЕ",
+        "en": "BOOK NOW"
+      },
+      "call": {
+        "bg": "ОБАДЕТЕ СЕ",
+        "en": "CALL US"
+      }
+    }
+  },
+  "features": {
+    "title": {
+      "bg": "Добре дошли в нашия свят на комфорт",
+      "en": "Welcome to Our World of Comfort"
+    },
+    "subtitle": {
+      "bg": "Открийте идеалното място за отдих, съчетаващо активна почивка, богато културно наследство и автентична атмосфера",
+      "en": "Discover the perfect retreat combining active recreation, rich cultural heritage, and authentic atmosphere"
+    },
+    "images": {
+      "restaurant": {
+        "title": {
+          "bg": "Ресторант",
+          "en": "Restaurant"
+        }
+      },
+      "spa": {
+        "title": {
+          "bg": "Релакс зона",
+          "en": "Spa Area"
+        }
+      },
+      "rooms": {
+        "title": {
+          "bg": "Стаи",
+          "en": "Rooms"
+        }
+      },
+      "garden": {
+        "title": {
+          "bg": "Градина",
+          "en": "Garden"
+        }
+      },
+      "old_house": {
+        "title": {
+          "bg": "Старата къща",
+          "en": "The Old House"
+        }
+      }
+    },
+    "benefits": {
+      "spa": {
+        "title": {
+          "bg": "Релакс зона",
+          "en": "Relaxation Area"
+        },
+        "description": {
+          "bg": "Сауна и джакузи за пълноценна почивка и възстановяване",
+          "en": "Sauna and jacuzzi for complete rest and recovery"
+        }
+      },
+      "restaurant": {
+        "title": {
+          "bg": "Ресторант",
+          "en": "Restaurant"
+        },
+        "description": {
+          "bg": "Автентична закуска с пресни продукти от региона",
+          "en": "Authentic breakfast with fresh local products"
+        }
+      },
+      "garden": {
+        "title": {
+          "bg": "Градина",
+          "en": "Garden"
+        },
+        "description": {
+          "bg": "Отдих и кафе под старата асма",
+          "en": "Relax and enjoy coffee under the old vine"
+        }
+      },
+      "wifi": {
+        "title": {
+          "bg": "Wi-Fi",
+          "en": "Wi-Fi"
+        },
+        "description": {
+          "bg": "Бърз интернет в целия хотел",
+          "en": "High-speed internet throughout the hotel"
+        }
+      }
+    }
+  },
+  "places": {
+    "title": {
+      "bg": "Открийте нашите места",
+      "en": "Discover Our Spaces"
+    },
+    "subtitle": {
+      "bg": "Четири уникални пространства, създадени да направят вашия престой незабравим",
+      "en": "Four unique spaces designed to make your stay unforgettable"
+    },
+    "sections": {
+      "hotel": {
+        "title": {
+          "bg": "Хотел",
+          "en": "The Hotel"
+        },
+        "description": {
+          "bg": "Уютно и модерно място за вашата почивка, съчетаващо комфорт и елегантност.",
+          "en": "A cozy and modern place for your stay, combining comfort and elegance."
+        }
+      },
+      "oldHouse": {
+        "title": {
+          "bg": "Старата къща",
+          "en": "The Old House"
+        },
+        "description": {
+          "bg": "Автентична възрожденска къща, запазила духа на традиционното българско гостоприемство.",
+          "en": "An authentic Revival-period house preserving the spirit of traditional Bulgarian hospitality."
+        }
+      },
+      "restaurant": {
+        "title": {
+          "bg": "Ресторант",
+          "en": "The Restaurant"
+        },
+        "description": {
+          "bg": "Започнете деня си с богата закуска от пресни местни продукти.",
+          "en": "Start your day with a rich breakfast made from fresh local ingredients."
+        }
+      },
+      "spa": {
+        "title": {
+          "bg": "Релакс център",
+          "en": "The Relax Center"
+        },
+        "description": {
+          "bg": "Релаксирайте в нашата сауна и джакузи за пълноценна почивка.",
+          "en": "Relax in our sauna and jacuzzi for complete rest and rejuvenation."
+        }
+      }
+    },
+    "learnMore": {
+      "bg": "Научете повече",
+      "en": "Learn More"
+    }
+  },
+  "berkovitsa": {
+    "location": {
+      "bg": "Берковица, България",
+      "en": "Berkovitsa, Bulgaria"
+    },
+    "title": {
+      "bg": "Магията на Берковския Балкан",
+      "en": "The Magic of Berkovitsa's Mountains"
+    },
+    "description": {
+      "bg": "Берковица е очарователен град, разположен в подножието на връх Ком. Съчетание от богата история, възрожденска архитектура и невероятна природа, градът предлага безброй възможности за активна почивка, културен туризъм и незабравими преживявания през всички сезони.",
+      "en": "Berkovitsa is a charming town nestled at the foot of Kom Peak. A blend of rich history, Revival architecture, and stunning nature, the town offers countless opportunities for active recreation, cultural tourism, and unforgettable experiences throughout all seasons."
+    },
+    "button": {
+      "bg": "РАЗГЛЕДАЙТЕ АКТИВНОСТИ",
+      "en": "EXPLORE ACTIVITIES"
+    }
+  },
+  "gallery": {
+    "title": {
+      "bg": "Разгледайте хотела",
+      "en": "Explore the Hotel"
+    },
+    "subtitle": {
+      "bg": "Потопете се в атмосферата на Хотел Деметра чрез нашата галерия от снимки",
+      "en": "Immerse yourself in the atmosphere of Hotel Demetra through our photo gallery"
+    },
+    "images": {
+      "spa": {
+        "title": {
+          "bg": "Спа център",
+          "en": "Spa Center"
+        },
+        "description": {
+          "bg": "Релаксирайте в нашата сауна и джакузи",
+          "en": "Relax in our sauna and jacuzzi"
+        }
+      },
+      "restaurant": {
+        "title": {
+          "bg": "Ресторант",
+          "en": "Restaurant"
+        },
+        "description": {
+          "bg": "Традиционна кухня с модерен привкус",
+          "en": "Traditional cuisine with a modern twist"
+        }
+      },
+      "garden": {
+        "title": {
+          "bg": "Градина",
+          "en": "Garden"
+        },
+        "description": {
+          "bg": "Спокойствие сред природата",
+          "en": "Tranquility in nature"
+        }
+      },
+      "rooms": {
+        "title": {
+          "bg": "Стаи",
+          "en": "Rooms"
+        },
+        "description": {
+          "bg": "Комфорт и елегантност",
+          "en": "Comfort and elegance"
+        }
+      },
+      "lobby": {
+        "title": {
+          "bg": "Лоби",
+          "en": "Lobby"
+        },
+        "description": {
+          "bg": "Топло посрещане",
+          "en": "Warm welcome"
+        }
+      }
+    }
+  },
+  "testimonials": {
+    "title": {
+      "bg": "Какво казват нашите гости",
+      "en": "What Our Guests Say"
+    },
+    "subtitle": {
+      "bg": "Вижте отзивите на гостите, които вече са преживели магията на Хотел Деметра",
+      "en": "See the reviews from guests who have already experienced the magic of Hotel Demetra"
+    },
+    "reviews": {
+      "maria": {
+        "author": {
+          "bg": "Мария Иванова",
+          "en": "Maria Ivanova"
+        },
+        "text": {
+          "bg": "Прекрасен хотел с невероятна атмосфера! Персоналът е изключително любезен, а стаите са просторни и елегантни. Спа зоната е истинско бижу за релаксация.",
+          "en": "Wonderful hotel with an amazing atmosphere! The staff is extremely friendly, and the rooms are spacious and elegant. The spa area is a true gem for relaxation."
+        },
+        "date": {
+          "bg": "Февруари 2024",
+          "en": "February 2024"
+        }
+      },
+      "george": {
+        "author": {
+          "bg": "Георги Петров",
+          "en": "George Petrov"
+        },
+        "text": {
+          "bg": "Отличен избор за спокойна почивка. Ресторантът предлага превъзходна храна с локални продукти. Определено ще се върнем отново!",
+          "en": "Excellent choice for a peaceful stay. The restaurant offers superb food with local products. We will definitely return!"
+        },
+        "date": {
+          "bg": "Януари 2024",
+          "en": "January 2024"
+        }
+      },
+      "elena": {
+        "author": {
+          "bg": "Елена Димитрова",
+          "en": "Elena Dimitrova"
+        },
+        "text": {
+          "bg": "Уникално място с прекрасна гледка към планината. Закуската е разнообразна и вкусна, а обслужването е на много високо ниво.",
+          "en": "Unique place with a beautiful mountain view. The breakfast is diverse and delicious, and the service is of very high quality."
+        },
+        "date": {
+          "bg": "Март 2024",
+          "en": "March 2024"
+        }
+      }
+    },
+    "leaveReview": {
+      "bg": "Оставете отзив",
+      "en": "Leave a Review"
+    }
+  },
+  "cta": {
+    "title": {
+      "bg": "Резервирайте своята почивка",
+      "en": "Book Your Stay"
+    },
+    "subtitle": {
+      "bg": "Открийте спокойствието и комфорта в прегръдката на Берковския Балкан",
+      "en": "Discover tranquility and comfort in the embrace of the Berkovitsa Balkan"
+    },
+    "button": {
+      "bg": "РЕЗЕРВИРАЙТЕ СЕГА",
+      "en": "BOOK NOW"
+    }
+  }
+}

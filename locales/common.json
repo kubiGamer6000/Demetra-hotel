@@ -1,0 +1,90 @@
+{
+  "nav": {
+    "home": {
+      "bg": "НАЧАЛО",
+      "en": "HOME"
+    },
+    "rooms": {
+      "bg": "СТАИ",
+      "en": "ROOMS"
+    },
+    "amenities": {
+      "bg": "УДОБСТВА",
+      "en": "AMENITIES"
+    },
+    "contacts": {
+      "bg": "КОНТАКТИ",
+      "en": "CONTACTS"
+    },
+    "reserve": {
+      "bg": "РЕЗЕРВИРАЙТЕ",
+      "en": "BOOK NOW"
+    }
+  },
+  "footer": {
+    "about": {
+      "title": {
+        "bg": "Хотел Деметра",
+        "en": "Hotel Demetra"
+      },
+      "description": {
+        "bg": "Луксозен спа хотел, съчетаващ модерен комфорт с традиционно българско гостоприемство в сърцето на Берковица.",
+        "en": "A luxury spa hotel combining modern comfort with traditional Bulgarian hospitality in the heart of Berkovitsa."
+      }
+    },
+    "contact": {
+      "title": {
+        "bg": "Контакти",
+        "en": "Contact"
+      },
+      "address": {
+        "bg": "ул. Николаевска 12, Берковица 3500, България",
+        "en": "12 Nikolaevska St., Berkovitsa 3500, Bulgaria"
+      },
+      "phone": {
+        "bg": "+359 888 123 456",
+        "en": "+359 888 123 456"
+      },
+      "email": {
+        "bg": "info@hoteldemetra.bg",
+        "en": "info@hoteldemetra.bg"
+      }
+    },
+    "links": {
+      "title": {
+        "bg": "Полезни връзки",
+        "en": "Useful Links"
+      },
+      "about": {
+        "bg": "За нас",
+        "en": "About Us"
+      },
+      "rooms": {
+        "bg": "Стаи",
+        "en": "Rooms"
+      },
+      "spa": {
+        "bg": "Спа център",
+        "en": "Spa Center"
+      },
+      "restaurant": {
+        "bg": "Ресторант",
+        "en": "Restaurant"
+      },
+      "contacts": {
+        "bg": "Контакти",
+        "en": "Contacts"
+      }
+    },
+    "social": {
+      "title": {
+        "bg": "Последвайте ни",
+        "en": "Follow Us"
+      }
+    },
+    "copyright": {
+      "bg": "© 2024 Хотел Деметра. Всички права запазени.",
+      "en": "© 2024 Hotel Demetra. All rights reserved."
+    }
+  }
+}

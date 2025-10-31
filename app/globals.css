@@ -1,0 +1,94 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Eugusto';
+  src: url('/fonts/Eugusto.woff2') format('woff2'),
+       url('/fonts/Eugusto.woff') format('woff'),
+       url('/fonts/Eugusto.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 32 30% 91%;
+    --primary-foreground: 30 24% 29%;
+    --secondary: 30 24% 95%;
+    --secondary-foreground: 30 24% 20%;
+    --muted: 30 24% 97%;
+    --muted-foreground: 30 24% 45%;
+    --accent: 30 24% 92%;
+    --accent-foreground: 30 24% 20%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 30 24% 90%;
+    --input: 30 24% 90%;
+    --ring: 30 24% 20%;
+    --radius: 0.5rem;
+    --brand-beige: #E8E2D7;
+    --brand-brown: #4A3F35;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Eugusto', var(--font-cormorant), serif;
+  }
+
+  body {
+    font-family: var(--font-montserrat);
+  }
+
+  .font-eugusto {
+    font-family: 'Eugusto', serif;
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 1s ease-out forwards;
+}
+
+.animate-slide-up {
+  animation: slideUp 1s ease-out forwards;
+}
