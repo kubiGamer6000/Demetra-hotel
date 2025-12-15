@@ -231,6 +231,48 @@
       "en": "See the reviews from guests who have already experienced the magic of Hotel Demetra"
     },
     "reviews": {
+      "olya": {
+        "author": {
+          "bg": "Оля",
+          "en": "Olya"
+        },
+        "text": {
+          "bg": "Имахме чудесен престой в този хотел! Персоналът беше невероятно приветлив и отзивчив, накарайки ни да се чувстваме добре дошли от момента на пристигането ни. Храната беше вкусна с голямо разнообразие, а местоположението не можеше да бъде по-добро – близо до всичко, от което се нуждаехме. Като цяло беше фантастично изживяване и определено ще се върнем в бъдеще!",
+          "en": "We had a wonderful stay at this hotel! The staff was incredibly friendly and helpful, making us feel welcome from the moment we arrived. The food was delicious with a great variety, and the location couldn't be better – close to everything we needed. Overall, it was a fantastic experience, and we'll definitely be coming back in the future!"
+        },
+        "date": {
+          "bg": "Ноември 2025",
+          "en": "November 2025"
+        }
+      },
+      "sinisa": {
+        "author": {
+          "bg": "Синиша",
+          "en": "Siniša"
+        },
+        "text": {
+          "bg": "Приветлив персонал, семейните хотели винаги са страхотни, наистина правят разликата. Тихо, приятно преживяване за сън, добра почивка за по-дълги пътувания, където обикновено бихте останали 1 или 2 нощи. Хубав градински ресторант.",
+          "en": "Friendly staff, family owned hotels are always great, it really makes the difference. Quiet, nice sleeping experience, good rest for longer trips where you would usually stay 1 or 2 nights. Nice garden restaurant."
+        },
+        "date": {
+          "bg": "Септември 2025",
+          "en": "September 2025"
+        }
+      },
+      "kerim": {
+        "author": {
+          "bg": "Керим",
+          "en": "Kerim"
+        },
+        "text": {
+          "bg": "Чудесно място за престой по пътя през България. Многоетажен хотел (дом), разположен в квартал с къщи. Взехме стаята с балкон, която даваше прекрасна гледка към града и планинския склон. Вечерята в прилежащия ресторант включваше местни храни и напитки и приятна атмосфера. Трябваше да тръгнем рано за Гърция, но ни приготвиха сладкиши. Това беше място за отдих за нас и си починахме добре.",
+          "en": "Great place to stay on way through Bulgaria. Multi-story hotel (home) located in suburb neighborhood. Got the balcony room which gave wonderful view of town and mountainside. The dinner in attached restaurant had local foods and drinks and nice atmosphere. Had to leave early to get to Greece but they prepared some pastries for us. This was a rest place for us and we rested well."
+        },
+        "date": {
+          "bg": "Юли 2025",
+          "en": "July 2025"
+        }
+      },
       "maria": {
         "author": {
           "bg": "Мария Иванова",

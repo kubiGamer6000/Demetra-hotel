@@ -2,6 +2,7 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat, Cormorant } from "next/font/google";
 import { BookingScript } from "@/components/booking-script";
+import { CookieConsent } from "@/components/cookie-consent";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
@@ -39,6 +40,7 @@ export default function RootLayout({
       >
         <BookingScript />
         <main className="min-h-screen bg-background">{children}</main>
+        <CookieConsent />
       </body>
     </html>
   );

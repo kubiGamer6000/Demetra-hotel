@@ -36,9 +36,9 @@ export function CTASection() {
           <p className="text-xl text-white/90 mb-6 sm:mb-8 font-cormorant italic">
             {t("cta.subtitle")}
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link href="/booking">
-              <CustomButton className="bg-[var(--brand-beige)] hover:bg-[var(--brand-beige)]/90 !text-[var(--brand-brown)] group">
+          <div className="flex justify-center">
+            <Link href="/booking" className="inline-block">
+              <CustomButton className="bg-[var(--brand-beige)] hover:bg-[var(--brand-beige)]/90 !text-[var(--brand-brown)] group w-full sm:w-auto">
                 <Calendar className="w-5 h-5 mr-2" />
                 <span className="text-base">{t("cta.button")}</span>
               </CustomButton>

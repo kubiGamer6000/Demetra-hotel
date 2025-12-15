@@ -67,8 +67,8 @@
       }
     },
     "copyright": {
-      "bg": "© 2024 Хотел Деметра. Всички права запазени.",
-      "en": "© 2024 Hotel Demetra. All rights reserved."
+      "bg": "Всички права запазени.",
+      "en": "All rights reserved."
     }
   },
   "policies": {
@@ -89,6 +89,24 @@
         "bg": "Отказ и възстановяване",
         "en": "Cancellation & Refund Policy"
       }
+    }
+  },
+  "cookies": {
+    "message": {
+      "bg": "Използваме бисквитки, за да подобрим вашето преживяване. Продължавайки да използвате сайта, вие се съгласявате с използването на бисквитки.",
+      "en": "We use cookies to enhance your experience. By continuing to use this site, you agree to our use of cookies."
+    },
+    "accept": {
+      "bg": "Приемам",
+      "en": "Accept"
+    },
+    "decline": {
+      "bg": "Отказвам",
+      "en": "Decline"
+    },
+    "learnMore": {
+      "bg": "Научете повече",
+      "en": "Learn more"
     }
   }
 }

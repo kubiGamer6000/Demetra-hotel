@@ -121,7 +121,7 @@ export function Footer() {
           </div>
           
           <p className="text-sm text-white/60 text-center">
-            {t('footer.copyright')}
+            © {new Date().getFullYear()} {t('footer.about.title')}. {t('footer.copyright')}
           </p>
         </motion.div>
       </div>

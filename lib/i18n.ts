@@ -64,10 +64,11 @@ export const useI18n = create<I18nStore>((set, get) => ({
       string,
       { file: keyof typeof translations; path?: string }
     > = {
-      // Common translations (nav, footer, policies)
+      // Common translations (nav, footer, policies, cookies)
       nav: { file: "common", path: "nav" },
       footer: { file: "common", path: "footer" },
       policies: { file: "common", path: "policies" },
+      cookies: { file: "common", path: "cookies" },
 
       // Homepage sections
       hero: { file: "homepage", path: "hero" },

@@ -1,13 +1,30 @@
 "use client";
 
-import { Star, Quote, ExternalLink } from "lucide-react";
+import { Star, Quote } from "lucide-react";
 import { motion } from "framer-motion";
-import { CustomButton } from "@/components/custom-button";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
 import { useI18n } from "@/lib/i18n";
 
 const testimonials = [
+  {
+    key: "olya",
+    rating: 5,
+    platform: "Booking.com",
+    date: "2025-11"
+  },
+  {
+    key: "sinisa",
+    rating: 5,
+    platform: "Booking.com",
+    date: "2025-09"
+  },
+  {
+    key: "kerim",
+    rating: 5,
+    platform: "Booking.com",
+    date: "2025-07"
+  },
   {
     key: "maria",
     rating: 5,
@@ -141,16 +158,6 @@ export function TestimonialsSection() {
                 onClick={() => scrollTo(index)}
               />
             ))}
-          </div>
-
-          <div className="flex justify-center mt-8 sm:mt-12">
-            <CustomButton 
-              className="bg-[var(--brand-brown)] hover:bg-[var(--brand-brown)]/90 !text-white group"
-              onClick={() => window.open('https://g.page/r/CX-YOUR-GOOGLE-REVIEW-LINK', '_blank')}
-            >
-              <span>{t('testimonials.leaveReview')}</span>
-              <ExternalLink className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
-            </CustomButton>
           </div>
         </div>
       </div>
