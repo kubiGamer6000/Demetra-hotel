@@ -124,12 +124,110 @@
   animation: slideUp 1s ease-out forwards;
 }
 
+/* Booking Engine Search Form Styles */
+#block-search,
+#block-search * {
+  box-sizing: border-box;
+}
+
+#block-search {
+  max-width: 1264px;
+  margin: 0 auto;
+  background: var(--brand-beige);
+  border-radius: 12px;
+}
+
+.be-container {
+  padding: 0 30px;
+}
+
+/* Hide the "Hotel management software" link */
+#be-search-form a[href="https://exely.bg/"] {
+  display: none !important;
+}
+
+/* Responsive adjustments for booking form */
+@media (max-width: 768px) {
+  #block-search {
+    border-radius: 8px;
+  }
+  
+  .be-container {
+    padding: 0 16px;
+  }
+}
+
+/* Booking Form Page Styles */
+#be-booking-form {
+  width: 100%;
+  max-width: 1264px;
+  margin: 0 auto;
+}
+
+#tl-booking-cart {
+  z-index: 1 !important;
+}
+
+/* Policy Pages Content Styles */
+.policy-content {
+  color: var(--brand-brown);
+  line-height: 1.8;
+}
+
+.policy-content h1,
+.policy-content h2,
+.policy-content h3,
+.policy-content h4 {
+  color: var(--brand-brown);
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+}
+
+.policy-content h2 {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.policy-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+}
+
+.policy-content p {
+  margin-bottom: 1rem;
+}
+
+.policy-content ul,
+.policy-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+}
+
+.policy-content li {
+  margin-bottom: 0.5rem;
+}
+
+.policy-content a {
+  color: var(--brand-brown);
+  text-decoration: underline;
+}
+
+.policy-content a:hover {
+  opacity: 0.8;
+}
+
 
 
 @layer base {
   * {
     @apply border-border;
   }
+  
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+  
   body {
     @apply bg-background text-foreground;
   }

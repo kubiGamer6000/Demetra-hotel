@@ -1,8 +1,6 @@
 "use client";
 
-import { ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
-import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 
 const hotelSections = [
@@ -10,25 +8,21 @@ const hotelSections = [
     key: "hotel",
     image:
       "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/5aacfd14-b90c-4d3e-5f6c-d2c2c3664700/w=1200",
-    link: "/hotel",
   },
   {
     key: "oldHouse",
     image:
       "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/c97014a2-541b-4119-4d0c-4470dd5fbb00/w=1200",
-    link: "/old-house",
   },
   {
     key: "restaurant",
     image:
       "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/5e12099e-477b-48cd-bf9d-9be8cef33600/w=1200",
-    link: "/restaurant",
   },
   {
     key: "spa",
     image:
       "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/af216f5b-9576-42ce-2a47-292c698b7b00/w=1200",
-    link: "/spa",
   },
 ];
 
@@ -61,11 +55,11 @@ export function PlacesSection() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="group relative"
+              className="relative"
             >
               <div className="relative h-[350px] sm:h-[450px] overflow-hidden rounded-2xl">
                 <div
-                  className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                  className="absolute inset-0 bg-cover bg-center"
                   style={{ backgroundImage: `url(${section.image})` }}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-transparent" />
@@ -80,16 +74,9 @@ export function PlacesSection() {
                     <h3 className="text-3xl font-cormorant mb-3">
                       {t(`places.sections.${section.key}.title`)}
                     </h3>
-                    <p className="text-white/80 text-sm leading-relaxed mb-6">
+                    <p className="text-white/80 text-sm leading-relaxed">
                       {t(`places.sections.${section.key}.description`)}
                     </p>
-                    <Link
-                      href={section.link}
-                      className="inline-flex items-center text-sm font-medium text-white/90 hover:text-white transition-colors group/link"
-                    >
-                      {t("places.learnMore")}
-                      <ChevronRight className="w-4 h-4 ml-1 transition-transform group-hover/link:translate-x-1" />
-                    </Link>
                   </motion.div>
                 </div>
               </div>

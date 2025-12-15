@@ -95,14 +95,14 @@
           "en": "Relax and enjoy coffee under the old vine"
         }
       },
-      "wifi": {
+      "business": {
         "title": {
-          "bg": "Wi-Fi",
-          "en": "Wi-Fi"
+          "bg": "За Бизнеса",
+          "en": "Business Gatherings"
         },
         "description": {
-          "bg": "Бърз интернет в целия хотел",
-          "en": "High-speed internet throughout the hotel"
+          "bg": "Специално обособено пространство за бизнес срещи и презентации",
+          "en": "Designated space for business meetings and presentations"
         }
       }
     }
@@ -153,7 +153,7 @@
           "en": "The Relax Center"
         },
         "description": {
-          "bg": "Релаксирайте в нашата сауна и джакузи за пълноценна почивка.",
+          "bg": "Релаксирайте в нашата сауна и басейн/джакузи за пълноценна почивка.",
           "en": "Relax in our sauna and jacuzzi for complete rest and rejuvenation."
         }
       }
@@ -190,57 +190,35 @@
       "bg": "Потопете се в атмосферата на Хотел Деметра чрез нашата галерия от снимки",
       "en": "Immerse yourself in the atmosphere of Hotel Demetra through our photo gallery"
     },
-    "images": {
-      "spa": {
-        "title": {
-          "bg": "Спа център",
-          "en": "Spa Center"
-        },
-        "description": {
-          "bg": "Релаксирайте в нашата сауна и джакузи",
-          "en": "Relax in our sauna and jacuzzi"
-        }
-      },
-      "restaurant": {
-        "title": {
-          "bg": "Ресторант",
-          "en": "Restaurant"
-        },
-        "description": {
-          "bg": "Традиционна кухня с модерен привкус",
-          "en": "Traditional cuisine with a modern twist"
-        }
+    "categories": {
+      "hotel": {
+        "bg": "Хотел",
+        "en": "Hotel"
       },
       "garden": {
-        "title": {
-          "bg": "Градина",
-          "en": "Garden"
-        },
-        "description": {
-          "bg": "Спокойствие сред природата",
-          "en": "Tranquility in nature"
-        }
+        "bg": "Градина",
+        "en": "Garden"
       },
-      "rooms": {
-        "title": {
-          "bg": "Стаи",
-          "en": "Rooms"
-        },
-        "description": {
-          "bg": "Комфорт и елегантност",
-          "en": "Comfort and elegance"
-        }
+      "oldHouse": {
+        "bg": "Стара къща",
+        "en": "Old House"
       },
-      "lobby": {
-        "title": {
-          "bg": "Лоби",
-          "en": "Lobby"
-        },
-        "description": {
-          "bg": "Топло посрещане",
-          "en": "Warm welcome"
-        }
+      "restaurant": {
+        "bg": "Ресторант",
+        "en": "Restaurant"
+      },
+      "relaxCenter": {
+        "bg": "Релакс център",
+        "en": "Relax Center"
       }
+    },
+    "clearFilter": {
+      "bg": "Изчисти филтър",
+      "en": "Clear Filter"
+    },
+    "loadMore": {
+      "bg": "Зареди още",
+      "en": "Load More"
     }
   },
   "testimonials": {
@@ -313,6 +291,46 @@
     "button": {
       "bg": "РЕЗЕРВИРАЙТЕ СЕГА",
       "en": "BOOK NOW"
+    }
+  },
+  "booking": {
+    "title": {
+      "bg": "Резервация",
+      "en": "Book Your Stay"
+    },
+    "subtitle": {
+      "bg": "Изберете датите на вашия престой и резервирайте директно",
+      "en": "Select your dates and book directly with us"
+    }
+  },
+  "funding": {
+    "title": {
+      "bg": "Стъпка напред в комфорта",
+      "en": "A Step Forward in Comfort"
+    },
+    "paragraph1": {
+      "bg": "Семеен хотел Деметра успешно завърши проект за обновяване, финансиран по Програмата за развитие на селските райони 2014-2020.",
+      "en": "Family Hotel Demetra has successfully completed a renovation project funded by the Rural Development Programme 2014-2020."
+    },
+    "paragraph2": {
+      "bg": "Проектът, съфинансиран от Европейския земеделски фонд, цели да подобри туристическата привлекателност на хотела.",
+      "en": "The project, co-financed by the European Agricultural Fund, aims to improve the hotel's tourist attractiveness."
+    },
+    "paragraph3": {
+      "bg": "С обща стойност 179 157,88 лева, инициативата включва значителни инвестиции в модернизация и разширяване на услугите. Този проект е ключова стъпка към утвърждаването на Берковица като предпочитана туристическа дестинация.",
+      "en": "With a total value of 179,157.88 leva, the initiative includes significant investments in modernization and service expansion. This project is a key step towards establishing Berkovitsa as a preferred tourist destination."
+    },
+    "visitMIG": {
+      "bg": "Посетете МИГ Берковица-Годеч",
+      "en": "Visit LAG Berkovitsa-Godech"
+    },
+    "euFundingAlt": {
+      "bg": "Европейско финансиране",
+      "en": "European Funding"
+    },
+    "programInfo": {
+      "bg": "Програма за развитие на селските райони 2014-2020 • Европейски земеделски фонд за развитие на селските райони",
+      "en": "Rural Development Programme 2014-2020 • European Agricultural Fund for Rural Development"
     }
   }
 }

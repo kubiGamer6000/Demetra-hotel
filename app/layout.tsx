@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Montserrat, Cormorant } from "next/font/google";
+import { BookingScript } from "@/components/booking-script";
 
 const montserrat = Montserrat({
   subsets: ["latin", "cyrillic"],
@@ -36,6 +37,7 @@ export default function RootLayout({
       <body
         className={`${montserrat.variable} ${cormorant.variable} font-sans`}
       >
+        <BookingScript />
         <main className="min-h-screen bg-background">{children}</main>
       </body>
     </html>

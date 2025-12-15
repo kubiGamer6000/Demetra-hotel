@@ -11,7 +11,8 @@ export function Footer() {
   return (
     <footer className="bg-[var(--brand-brown)] text-white py-12 sm:py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 sm:gap-12">
+          {/* About */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -24,6 +25,7 @@ export function Footer() {
             </p>
           </motion.div>
 
+          {/* Contact */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -32,46 +34,44 @@ export function Footer() {
             className="space-y-3"
           >
             <h3 className="text-xl font-cormorant mb-3 sm:mb-4">{t('footer.contact.title')}</h3>
-            <div className="flex items-start space-x-3 text-white/80">
+            <a 
+              href="https://maps.app.goo.gl/EkFdwLRJrLgo9PbC8"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-start space-x-3 text-white/80 hover:text-white transition-colors"
+            >
               <MapPin className="w-5 h-5 mt-1 flex-shrink-0" />
-              <p className="text-sm">{t('footer.contact.address')}</p>
-            </div>
-            <div className="flex items-center space-x-3 text-white/80">
-              <Phone className="w-5 h-5" />
-              <p className="text-sm">{t('footer.contact.phone')}</p>
-            </div>
-            <div className="flex items-center space-x-3 text-white/80">
-              <Mail className="w-5 h-5" />
-              <p className="text-sm">{t('footer.contact.email')}</p>
-            </div>
+              <span className="text-sm">{t('footer.contact.address')}</span>
+            </a>
+            <a 
+              href="tel:+359895641292"
+              className="flex items-center space-x-3 text-white/80 hover:text-white transition-colors"
+            >
+              <Phone className="w-5 h-5 flex-shrink-0" />
+              <span className="text-sm">+359 895 641 292</span>
+            </a>
+            <a 
+              href="tel:+359884430292"
+              className="flex items-center space-x-3 text-white/80 hover:text-white transition-colors"
+            >
+              <Phone className="w-5 h-5 flex-shrink-0" />
+              <span className="text-sm">+359 884 430 292</span>
+            </a>
+            <a 
+              href="mailto:comvers@mail.bg"
+              className="flex items-center space-x-3 text-white/80 hover:text-white transition-colors"
+            >
+              <Mail className="w-5 h-5 flex-shrink-0" />
+              <span className="text-sm">comvers@mail.bg</span>
+            </a>
           </motion.div>
 
+          {/* Social */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.8, delay: 0.2 }}
-          >
-            <h3 className="text-xl font-cormorant mb-3 sm:mb-4">{t('footer.links.title')}</h3>
-            <ul className="space-y-2">
-              {['about', 'rooms', 'spa', 'restaurant', 'contacts'].map((item, index) => (
-                <li key={index}>
-                  <Link 
-                    href="#" 
-                    className="text-sm text-white/80 hover:text-white transition-colors"
-                  >
-                    {t(`footer.links.${item}`)}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.8, delay: 0.3 }}
           >
             <h3 className="text-xl font-cormorant mb-3 sm:mb-4">{t('footer.social.title')}</h3>
             <div className="flex space-x-4">
@@ -96,9 +96,31 @@ export function Footer() {
           whileInView={{ opacity: 1 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="mt-8 sm:mt-12 pt-4 sm:pt-6 border-t border-white/10 text-center"
+          className="mt-8 sm:mt-12 pt-4 sm:pt-6 border-t border-white/10"
         >
-          <p className="text-sm text-white/60">
+          {/* Policy Links */}
+          <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-4">
+            <Link 
+              href="/terms" 
+              className="text-sm text-white/60 hover:text-white transition-colors"
+            >
+              {t('footer.policies.terms')}
+            </Link>
+            <Link 
+              href="/privacy" 
+              className="text-sm text-white/60 hover:text-white transition-colors"
+            >
+              {t('footer.policies.privacy')}
+            </Link>
+            <Link 
+              href="/cancellation" 
+              className="text-sm text-white/60 hover:text-white transition-colors"
+            >
+              {t('footer.policies.cancellation')}
+            </Link>
+          </div>
+          
+          <p className="text-sm text-white/60 text-center">
             {t('footer.copyright')}
           </p>
         </motion.div>

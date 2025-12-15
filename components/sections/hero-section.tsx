@@ -180,6 +180,7 @@ export function HeroSection() {
             </motion.div>
           </div>
 
+          {/* Mobile: Book Now & Call Buttons */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -188,18 +189,40 @@ export function HeroSection() {
               ease: [0.25, 0.1, 0.25, 1],
               delay: 1.4,
             }}
-            className="flex flex-row items-center justify-center gap-3 sm:gap-5 mt-8 sm:mt-10"
+            className="flex md:hidden flex-row items-center justify-center gap-3 mt-8"
           >
-            <CustomButton className="max-w-[200px] bg-[var(--brand-beige)] hover:bg-[var(--brand-beige)]/90 !text-[var(--brand-brown)] !tracking-widest group">
-              <Calendar className="w-4 h-4 mr-2" />
-              <span className="text-sm">{t("hero.buttons.reserve")}</span>
-            </CustomButton>
-            <CustomButton
-              variant="outline"
-              className="!px-3 !py-2.5 !border-white/20 !text-white hover:!border-white/40 !bg-black/20 !aspect-square !flex !items-center !justify-center"
-            >
-              <Phone className="w-4 h-4" />
-            </CustomButton>
+            <a href="/booking">
+              <CustomButton className="bg-[var(--brand-beige)] hover:bg-[var(--brand-beige)]/90 !text-[var(--brand-brown)] !tracking-widest group">
+                <Calendar className="w-4 h-4 mr-2" />
+                <span className="text-sm">{t("hero.buttons.reserve")}</span>
+              </CustomButton>
+            </a>
+            <a href="tel:+359888123456">
+              <CustomButton
+                variant="outline"
+                className="!px-3 !py-2.5 !border-white/20 !text-white hover:!border-white/40 !bg-black/20 !aspect-square !flex !items-center !justify-center"
+              >
+                <Phone className="w-4 h-4" />
+              </CustomButton>
+            </a>
+          </motion.div>
+
+          {/* Desktop: Booking Search Form */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{
+              duration: 1.2,
+              ease: [0.25, 0.1, 0.25, 1],
+              delay: 1.4,
+            }}
+            className="hidden md:block mt-10 w-full max-w-4xl mx-auto"
+          >
+            <div id="block-search" className="booking-search-container">
+              <div id="be-search-form" className="be-container">
+                {/* Booking engine will render here */}
+              </div>
+            </div>
           </motion.div>
         </motion.div>
       </div>

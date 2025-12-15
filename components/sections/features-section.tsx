@@ -1,6 +1,6 @@
 "use client";
 
-import { Sparkles, Utensils, Coffee, Wifi } from "lucide-react";
+import { Sparkles, Utensils, Coffee, Users } from "lucide-react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from "embla-carousel-react";
 import Autoplay from "embla-carousel-autoplay";
@@ -40,8 +40,8 @@ const benefits = [
     key: "garden",
   },
   {
-    icon: <Wifi className="w-6 h-6" />,
-    key: "wifi",
+    icon: <Users className="w-6 h-6" />,
+    key: "business",
   },
 ];
 

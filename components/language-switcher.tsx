@@ -14,27 +14,27 @@ export function LanguageSwitcher() {
 
   return (
     <motion.div 
-      className="flex items-center space-x-1.5"
+      className="flex items-center space-x-1"
       initial={{ opacity: 0 }}
       animate={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
     >
       <button
         onClick={() => setLanguage('bg')}
-        className={`flex items-center space-x-1.5 px-2 py-1.5 rounded-md transition-all ${
+        className={`flex items-center space-x-1 px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-md transition-all ${
           language === 'bg' 
             ? 'bg-white/20' 
             : 'hover:bg-white/10'
         }`}
       >
-        <div className="relative w-4 h-4 overflow-hidden rounded-sm">
+        <div className="relative w-4 h-4 overflow-hidden rounded-sm flex-shrink-0">
           <img
             src={flags.bg}
             alt="Bulgarian"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
-        <span className={`text-sm font-medium ${
+        <span className={`text-xs sm:text-sm font-medium ${
           language === 'bg' ? 'text-white' : 'text-white/70'
         }`}>
           BG
@@ -42,20 +42,20 @@ export function LanguageSwitcher() {
       </button>
       <button
         onClick={() => setLanguage('en')}
-        className={`flex items-center space-x-1.5 px-2 py-1.5 rounded-md transition-all ${
+        className={`flex items-center space-x-1 px-1.5 sm:px-2 py-1 sm:py-1.5 rounded-md transition-all ${
           language === 'en' 
             ? 'bg-white/20' 
             : 'hover:bg-white/10'
         }`}
       >
-        <div className="relative w-4 h-4 overflow-hidden rounded-sm">
+        <div className="relative w-4 h-4 overflow-hidden rounded-sm flex-shrink-0">
           <img
             src={flags.en}
             alt="English"
             className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
-        <span className={`text-sm font-medium ${
+        <span className={`text-xs sm:text-sm font-medium ${
           language === 'en' ? 'text-white' : 'text-white/70'
         }`}>
           EN

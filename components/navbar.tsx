@@ -68,13 +68,13 @@ export function Navbar() {
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
         transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1] }}
-        className={`fixed w-full z-50 transition-colors duration-300 ${
+        className={`fixed left-0 right-0 z-50 transition-colors duration-300 overflow-hidden ${
           scrolled
             ? "bg-[var(--brand-brown)] shadow-sm py-4"
             : "bg-transparent py-6"
         }`}
       >
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
             <motion.div
               whileHover={{
@@ -123,18 +123,20 @@ export function Navbar() {
                     exit={{ opacity: 0, x: 20 }}
                     transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
                   >
-                    <CustomButton
-                      variant="outline"
-                      className="!text-sm !tracking-wider !font-medium !border-white/20 !text-white hover:!border-white/40"
-                    >
-                      {t("nav.reserve")}
-                    </CustomButton>
+                    <Link href="/booking">
+                      <CustomButton
+                        variant="outline"
+                        className="!text-sm !tracking-wider !font-medium !border-white/20 !text-white hover:!border-white/40"
+                      >
+                        {t("nav.reserve")}
+                      </CustomButton>
+                    </Link>
                   </motion.div>
                 )}
               </AnimatePresence>
             </div>
 
-            <div className="flex items-center space-x-4 md:hidden">
+            <div className="flex items-center space-x-2 md:hidden">
               <LanguageSwitcher />
               <motion.button
                 whileHover={{ scale: 1.05 }}
@@ -190,9 +192,11 @@ export function Navbar() {
                 </motion.div>
               ))}
               <motion.div variants={menuItemVariants} custom={menuItems.length}>
-                <CustomButton variant="outline">
-                  {t("nav.reserve")}
-                </CustomButton>
+                <Link href="/booking" onClick={() => setIsMenuOpen(false)}>
+                  <CustomButton variant="outline">
+                    {t("nav.reserve")}
+                  </CustomButton>
+                </Link>
               </motion.div>
             </motion.div>
           </motion.div>

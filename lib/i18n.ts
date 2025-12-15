@@ -64,9 +64,10 @@ export const useI18n = create<I18nStore>((set, get) => ({
       string,
       { file: keyof typeof translations; path?: string }
     > = {
-      // Common translations (nav and footer)
+      // Common translations (nav, footer, policies)
       nav: { file: "common", path: "nav" },
       footer: { file: "common", path: "footer" },
+      policies: { file: "common", path: "policies" },
 
       // Homepage sections
       hero: { file: "homepage", path: "hero" },
@@ -76,6 +77,8 @@ export const useI18n = create<I18nStore>((set, get) => ({
       gallery: { file: "homepage", path: "gallery" },
       testimonials: { file: "homepage", path: "testimonials" },
       cta: { file: "homepage", path: "cta" },
+      booking: { file: "homepage", path: "booking" },
+      funding: { file: "homepage", path: "funding" },
 
       // Hotel page sections
       hotel: { file: "hotelpage", path: "" }, // hotel.* maps directly to hotelpage.*
