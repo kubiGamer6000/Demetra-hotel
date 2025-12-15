@@ -1,6 +1,6 @@
 "use client";
 
-import { Star, Quote } from "lucide-react";
+import { Star, Quote, ChevronLeft, ChevronRight } from "lucide-react";
 import { motion } from "framer-motion";
 import useEmblaCarousel from 'embla-carousel-react';
 import { useCallback, useEffect, useState } from 'react';
@@ -63,25 +63,30 @@ const platformLogos = {
 };
 
 export function TestimonialsSection() {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, align: "center" });
+  const [emblaRef, emblaApi] = useEmblaCarousel({ 
+    loop: true, 
+    align: "start",
+    skipSnaps: false,
+    dragFree: false
+  });
   const [selectedIndex, setSelectedIndex] = useState(0);
-  const [scrollSnaps, setScrollSnaps] = useState<number[]>([]);
+  const [canScrollPrev, setCanScrollPrev] = useState(false);
+  const [canScrollNext, setCanScrollNext] = useState(false);
   const { t } = useI18n();
 
-  const scrollTo = useCallback(
-    (index: number) => emblaApi && emblaApi.scrollTo(index),
-    [emblaApi]
-  );
+  const scrollPrev = useCallback(() => emblaApi && emblaApi.scrollPrev(), [emblaApi]);
+  const scrollNext = useCallback(() => emblaApi && emblaApi.scrollNext(), [emblaApi]);
 
   const onSelect = useCallback(() => {
     if (!emblaApi) return;
     setSelectedIndex(emblaApi.selectedScrollSnap());
+    setCanScrollPrev(emblaApi.canScrollPrev());
+    setCanScrollNext(emblaApi.canScrollNext());
   }, [emblaApi]);
 
   useEffect(() => {
     if (!emblaApi) return;
     onSelect();
-    setScrollSnaps(emblaApi.scrollSnapList());
     emblaApi.on('select', onSelect);
     emblaApi.on('reInit', onSelect);
   }, [emblaApi, onSelect]);
@@ -94,7 +99,7 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8 }}
-          className="text-center mb-8 sm:mb-16"
+          className="text-center mb-8 sm:mb-12"
         >
           <h2 className="text-4xl sm:text-5xl font-cormorant mb-3 sm:mb-4 text-[var(--brand-brown)]">
             {t('testimonials.title')}
@@ -104,26 +109,44 @@ export function TestimonialsSection() {
           </p>
         </motion.div>
 
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto relative">
+          {/* Navigation Arrows - Desktop */}
+          <button
+            onClick={scrollPrev}
+            className="hidden md:flex absolute -left-4 lg:-left-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-[var(--brand-brown)]/10 text-[var(--brand-brown)] hover:bg-[var(--brand-beige)] transition-colors"
+            aria-label="Previous review"
+          >
+            <ChevronLeft className="w-5 h-5" />
+          </button>
+          <button
+            onClick={scrollNext}
+            className="hidden md:flex absolute -right-4 lg:-right-12 top-1/2 -translate-y-1/2 z-10 w-10 h-10 items-center justify-center rounded-full bg-white shadow-md border border-[var(--brand-brown)]/10 text-[var(--brand-brown)] hover:bg-[var(--brand-beige)] transition-colors"
+            aria-label="Next review"
+          >
+            <ChevronRight className="w-5 h-5" />
+          </button>
+
           <div className="overflow-hidden" ref={emblaRef}>
-            <div className="flex">
+            <div className="flex -ml-4">
               {testimonials.map((testimonial, index) => (
-                <motion.div
+                <div
                   key={index}
-                  className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_80%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] px-4"
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.8, delay: index * 0.1 }}
+                  className="flex-[0_0_100%] min-w-0 sm:flex-[0_0_85%] md:flex-[0_0_50%] lg:flex-[0_0_33.333%] pl-4"
                 >
-                  <div className="bg-gradient-to-br from-[var(--brand-beige)]/30 to-white p-8 rounded-2xl shadow-sm border border-[var(--brand-brown)]/5 h-full flex flex-col relative group hover:shadow-md transition-all duration-300">
+                  <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ duration: 0.8, delay: index * 0.05 }}
+                    className="bg-gradient-to-br from-[var(--brand-beige)]/30 to-white p-6 sm:p-8 rounded-2xl shadow-sm border border-[var(--brand-brown)]/5 h-full flex flex-col relative group hover:shadow-md transition-all duration-300"
+                  >
                     <Quote className="absolute top-6 right-6 w-8 h-8 text-[var(--brand-brown)]/10" />
                     <div className="flex items-center gap-1 mb-4">
                       {[...Array(testimonial.rating)].map((_, i) => (
                         <Star key={i} className="w-4 h-4 fill-[#FFD700] text-[#FFD700]" />
                       ))}
                     </div>
-                    <p className="text-[var(--brand-brown)]/80 mb-6 italic">
+                    <p className="text-[var(--brand-brown)]/80 mb-6 italic text-sm sm:text-base leading-relaxed">
                       "{t(`testimonials.reviews.${testimonial.key}.text`)}"
                     </p>
                     <div className="mt-auto">
@@ -140,24 +163,49 @@ export function TestimonialsSection() {
                         </span>
                       </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </div>
               ))}
             </div>
           </div>
 
-          <div className="flex justify-center items-center gap-3 mt-6 sm:mt-8">
-            {scrollSnaps.map((_, index) => (
-              <button
-                key={index}
-                className={`w-2 h-2 rounded-full transition-all duration-300 ${
-                  index === selectedIndex
-                    ? 'bg-[var(--brand-brown)] w-4'
-                    : 'bg-[var(--brand-brown)]/30'
-                }`}
-                onClick={() => scrollTo(index)}
-              />
-            ))}
+          {/* Navigation Controls */}
+          <div className="flex justify-center items-center gap-4 mt-8">
+            {/* Mobile Arrow Buttons */}
+            <button
+              onClick={scrollPrev}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md border border-[var(--brand-brown)]/10 text-[var(--brand-brown)] hover:bg-[var(--brand-beige)] transition-colors"
+              aria-label="Previous review"
+            >
+              <ChevronLeft className="w-5 h-5" />
+            </button>
+
+            {/* Progress Indicator */}
+            <div className="flex items-center gap-2">
+              <span className="text-sm font-medium text-[var(--brand-brown)]">
+                {selectedIndex + 1}
+              </span>
+              <div className="w-16 sm:w-24 h-1 bg-[var(--brand-brown)]/10 rounded-full overflow-hidden">
+                <motion.div
+                  className="h-full bg-[var(--brand-brown)] rounded-full"
+                  initial={{ width: 0 }}
+                  animate={{ width: `${((selectedIndex + 1) / testimonials.length) * 100}%` }}
+                  transition={{ duration: 0.3, ease: "easeOut" }}
+                />
+              </div>
+              <span className="text-sm text-[var(--brand-brown)]/60">
+                {testimonials.length}
+              </span>
+            </div>
+
+            {/* Mobile Arrow Buttons */}
+            <button
+              onClick={scrollNext}
+              className="md:hidden w-10 h-10 flex items-center justify-center rounded-full bg-white shadow-md border border-[var(--brand-brown)]/10 text-[var(--brand-brown)] hover:bg-[var(--brand-beige)] transition-colors"
+              aria-label="Next review"
+            >
+              <ChevronRight className="w-5 h-5" />
+            </button>
           </div>
         </div>
       </div>
