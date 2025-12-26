@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { MapPin, Phone, Mail, Facebook, Instagram } from "lucide-react";
-import Link from "next/link";
 import { useI18n } from "@/lib/i18n";
 
 export function Footer() {
@@ -75,18 +74,24 @@ export function Footer() {
           >
             <h3 className="text-xl font-cormorant mb-3 sm:mb-4">{t('footer.social.title')}</h3>
             <div className="flex space-x-4">
-              <Link 
-                href="#"
+              <a 
+                href="https://www.facebook.com/hoteldemetra/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                aria-label="Facebook"
               >
                 <Facebook className="w-5 h-5" />
-              </Link>
-              <Link 
-                href="#"
+              </a>
+              <a 
+                href="https://www.instagram.com/hotel_demetra/"
+                target="_blank"
+                rel="noopener noreferrer"
                 className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center hover:bg-white/20 transition-colors"
+                aria-label="Instagram"
               >
                 <Instagram className="w-5 h-5" />
-              </Link>
+              </a>
             </div>
           </motion.div>
         </div>
@@ -100,24 +105,24 @@ export function Footer() {
         >
           {/* Policy Links */}
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 mb-4">
-            <Link 
+            <a 
               href="/terms" 
               className="text-sm text-white/60 hover:text-white transition-colors"
             >
               {t('footer.policies.terms')}
-            </Link>
-            <Link 
+            </a>
+            <a 
               href="/privacy" 
               className="text-sm text-white/60 hover:text-white transition-colors"
             >
               {t('footer.policies.privacy')}
-            </Link>
-            <Link 
+            </a>
+            <a 
               href="/cancellation" 
               className="text-sm text-white/60 hover:text-white transition-colors"
             >
               {t('footer.policies.cancellation')}
-            </Link>
+            </a>
           </div>
           
           <p className="text-sm text-white/60 text-center">

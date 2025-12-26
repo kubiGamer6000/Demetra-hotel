@@ -16,6 +16,10 @@
       "bg": "КОНТАКТИ",
       "en": "CONTACTS"
     },
+    "contact": {
+      "bg": "Контакт",
+      "en": "Contact"
+    },
     "reserve": {
       "bg": "РЕЗЕРВИРАЙТЕ",
       "en": "BOOK NOW"

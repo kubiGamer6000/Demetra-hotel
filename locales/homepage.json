@@ -173,7 +173,7 @@
       "en": "The Magic of Berkovitsa's Mountains"
     },
     "description": {
-      "bg": "Берковица е очарователен град, разположен в подножието на връх Ком. Съчетание от богата история, възрожденска архитектура и невероятна природа, градът предлага безброй възможности за активна почивка, културен туризъм и незабравими преживявания през всички сезони.",
+      "bg": "Берковица е очарователен град, разположен в подножието на връх Ком. Съчетание от богата история, възрожденска архитектура и невероятна природа, градът предлага безброй възможности за активна почивка, културен туризъм и незабравими преживявания през всички сезони. В района на хотела по сведения на хора, Вазов е събирал своите приятели и са потегляли към връх Ком.",
       "en": "Berkovitsa is a charming town nestled at the foot of Kom Peak. A blend of rich history, Revival architecture, and stunning nature, the town offers countless opportunities for active recreation, cultural tourism, and unforgettable experiences throughout all seasons."
     },
     "button": {
@@ -373,6 +373,126 @@
     "programInfo": {
       "bg": "Програма за развитие на селските райони 2014-2020 • Европейски земеделски фонд за развитие на селските райони",
       "en": "Rural Development Programme 2014-2020 • European Agricultural Fund for Rural Development"
+    }
+  },
+  "contact": {
+    "title": {
+      "bg": "Свържете се с нас",
+      "en": "Get in Touch"
+    },
+    "subtitle": {
+      "bg": "Имате въпроси или специални заявки? Ще се радваме да ви чуем",
+      "en": "Have questions or special requests? We'd love to hear from you"
+    },
+    "info": {
+      "title": {
+        "bg": "Информация за контакт",
+        "en": "Contact Information"
+      },
+      "address": {
+        "bg": "Адрес",
+        "en": "Address"
+      },
+      "phone": {
+        "bg": "Телефон",
+        "en": "Phone"
+      },
+      "email": {
+        "bg": "Имейл",
+        "en": "Email"
+      },
+      "responseTime": {
+        "bg": "Обикновено отговаряме в рамките на 24 часа",
+        "en": "We typically respond within 24 hours"
+      }
+    },
+    "form": {
+      "name": {
+        "bg": "Име",
+        "en": "Name"
+      },
+      "namePlaceholder": {
+        "bg": "Вашето име",
+        "en": "Your name"
+      },
+      "email": {
+        "bg": "Имейл",
+        "en": "Email"
+      },
+      "emailPlaceholder": {
+        "bg": "your@email.com",
+        "en": "your@email.com"
+      },
+      "phone": {
+        "bg": "Телефон",
+        "en": "Phone"
+      },
+      "phonePlaceholder": {
+        "bg": "+359 ...",
+        "en": "+359 ..."
+      },
+      "optional": {
+        "bg": "по избор",
+        "en": "optional"
+      },
+      "message": {
+        "bg": "Съобщение",
+        "en": "Message"
+      },
+      "messagePlaceholder": {
+        "bg": "Как можем да ви помогнем?",
+        "en": "How can we help you?"
+      },
+      "submit": {
+        "bg": "Изпратете съобщение",
+        "en": "Send Message"
+      },
+      "sending": {
+        "bg": "Изпращане...",
+        "en": "Sending..."
+      }
+    },
+    "errors": {
+      "nameRequired": {
+        "bg": "Моля, въведете вашето име",
+        "en": "Please enter your name"
+      },
+      "emailRequired": {
+        "bg": "Моля, въведете вашия имейл",
+        "en": "Please enter your email"
+      },
+      "emailInvalid": {
+        "bg": "Моля, въведете валиден имейл адрес",
+        "en": "Please enter a valid email address"
+      },
+      "messageRequired": {
+        "bg": "Моля, въведете вашето съобщение",
+        "en": "Please enter your message"
+      },
+      "messageTooShort": {
+        "bg": "Съобщението трябва да е поне 10 символа",
+        "en": "Message must be at least 10 characters"
+      }
+    },
+    "success": {
+      "title": {
+        "bg": "Съобщението е изпратено!",
+        "en": "Message Sent!"
+      },
+      "message": {
+        "bg": "Благодарим ви, че се свързахте с нас. Ще ви отговорим възможно най-скоро.",
+        "en": "Thank you for reaching out. We'll get back to you as soon as possible."
+      },
+      "sendAnother": {
+        "bg": "Изпратете друго съобщение",
+        "en": "Send another message"
+      }
+    },
+    "error": {
+      "message": {
+        "bg": "Възникна грешка при изпращане на съобщението. Моля, опитайте отново или се свържете директно с нас по телефона.",
+        "en": "There was an error sending your message. Please try again or contact us directly by phone."
+      }
     }
   }
 }

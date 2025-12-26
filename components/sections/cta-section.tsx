@@ -4,7 +4,6 @@ import { motion } from "framer-motion";
 import { CustomButton } from "@/components/custom-button";
 import { Calendar } from "lucide-react";
 import { useI18n } from "@/lib/i18n";
-import Link from "next/link";
 
 export function CTASection() {
   const { t } = useI18n();
@@ -37,12 +36,12 @@ export function CTASection() {
             {t("cta.subtitle")}
           </p>
           <div className="flex justify-center">
-            <Link href="/booking" className="inline-block">
+            <a href="/booking" className="inline-block">
               <CustomButton className="bg-[var(--brand-beige)] hover:bg-[var(--brand-beige)]/90 !text-[var(--brand-brown)] group w-full sm:w-auto">
                 <Calendar className="w-5 h-5 mr-2" />
                 <span className="text-base">{t("cta.button")}</span>
               </CustomButton>
-            </Link>
+            </a>
           </div>
         </motion.div>
       </div>

@@ -80,6 +80,7 @@ export const useI18n = create<I18nStore>((set, get) => ({
       cta: { file: "homepage", path: "cta" },
       booking: { file: "homepage", path: "booking" },
       funding: { file: "homepage", path: "funding" },
+      contact: { file: "homepage", path: "contact" },
 
       // Hotel page sections
       hotel: { file: "hotelpage", path: "" }, // hotel.* maps directly to hotelpage.*

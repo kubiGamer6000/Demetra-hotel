@@ -7,6 +7,7 @@ import { GallerySection } from "@/components/sections/gallery-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FundingSection } from "@/components/sections/funding-section";
 import { CTASection } from "@/components/sections/cta-section";
+import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/footer";
 
 export default function Home() {
@@ -21,6 +22,7 @@ export default function Home() {
       <TestimonialsSection />
       <FundingSection />
       <CTASection />
+      <ContactSection />
       <Footer />
     </div>
   );

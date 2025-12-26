@@ -17,7 +17,7 @@ const images = [
     key: "spa",
   },
   {
-    url: "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/f2aa4113-9855-4b91-2c83-ddf97f4eec00/w=1500",
+    url: "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/605b8443-5cb2-4137-939f-8ffd833f9600/w=1500",
     key: "rooms",
   },
   {
