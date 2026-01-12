@@ -70,6 +70,10 @@
         "en": "Follow Us"
       }
     },
+    "payments": {
+      "bg": "Приемаме",
+      "en": "We accept"
+    },
     "copyright": {
       "bg": "Всички права запазени.",
       "en": "All rights reserved."
