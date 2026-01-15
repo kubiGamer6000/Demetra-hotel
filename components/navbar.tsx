@@ -6,7 +6,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { CustomButton } from "./custom-button";
 import { LanguageSwitcher, MobileLanguageSwitcher } from "./language-switcher";
 import { useI18n } from "@/lib/i18n";
-import { Menu, X, Calendar, Mail } from "lucide-react";
+import { Menu, X, Calendar, Mail, Gift } from "lucide-react";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
@@ -120,8 +120,15 @@ export function Navbar() {
               </Link>
             </motion.div>
 
-            {/* Right side: Contact link + Language switcher + Reserve button */}
+            {/* Right side: Offers + Contact link + Language switcher + Reserve button */}
             <div className="flex items-center space-x-4">
+              <Link
+                href="/offers"
+                className="text-white/80 hover:text-white text-sm font-medium transition-colors"
+              >
+                {t("nav.offers")}
+              </Link>
+
               <button
                 onClick={scrollToContact}
                 className="text-white/80 hover:text-white text-sm font-medium transition-colors"
@@ -238,6 +245,16 @@ export function Navbar() {
                   <Calendar className="w-5 h-5" />
                   <span>{t("nav.reserve")}</span>
                 </a>
+
+                {/* Offers Button */}
+                <Link
+                  href="/offers"
+                  className="flex items-center gap-3 w-full px-4 py-3 bg-white/10 text-white rounded-xl font-medium transition-colors hover:bg-white/20"
+                  onClick={() => setMobileMenuOpen(false)}
+                >
+                  <Gift className="w-5 h-5" />
+                  <span>{t("nav.offers")}</span>
+                </Link>
 
                 {/* Contact Button */}
                 <button
