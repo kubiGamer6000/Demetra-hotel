@@ -243,12 +243,12 @@ const galleryImages: GalleryImage[] = [
     category: "oldHouse",
     alt: "Old House Exterior",
   },
-
-  {
-    url: "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/149ccaec-8966-4f4d-7482-8f38fdc30200/public",
-    category: "oldHouse",
-    alt: "Old House Interior",
-  },
+// veranda
+  // {
+  //   url: "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/149ccaec-8966-4f4d-7482-8f38fdc30200/public",
+  //   category: "oldHouse",
+  //   alt: "Old House Interior",
+  // },
   {
     url: "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/0df4ceb5-1e5e-4772-4fbd-32744c535500/public",
     category: "oldHouse",
