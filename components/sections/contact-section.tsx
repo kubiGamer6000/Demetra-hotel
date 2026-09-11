@@ -13,11 +13,7 @@ import {
 import { useState, FormEvent } from "react";
 import { useI18n } from "@/lib/i18n";
 
-// Replace with your Web3Forms access key
-// Sign up at https://web3forms.com to get your free access key
-const WEB3FORMS_ACCESS_KEY = "773a93f0-685a-4bd4-96f2-e8a5744033c2";
-
-interface FormData {
+interface ContactFormData {
   name: string;
   email: string;
   phone: string;
@@ -32,7 +28,7 @@ interface FormErrors {
 
 export function ContactSection() {
   const { t } = useI18n();
-  const [formData, setFormData] = useState<FormData>({
+  const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
     phone: "",
@@ -75,26 +71,26 @@ export function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
+    const website = new window.FormData(e.currentTarget as HTMLFormElement).get(
+      "website",
+    );
+
     try {
-      const response = await fetch("https://api.web3forms.com/submit", {
+      const response = await fetch("/api/contact", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          access_key: WEB3FORMS_ACCESS_KEY,
           name: formData.name,
           email: formData.email,
-          phone: formData.phone || "Not provided",
+          phone: formData.phone,
           message: formData.message,
-          subject: `New Contact Form Submission from ${formData.name}`,
-          from_name: "Hotel Demetra Website",
+          website,
         }),
       });
 
-      const result = await response.json();
-
-      if (result.success) {
+      if (response.ok) {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
@@ -107,7 +103,7 @@ export function ContactSection() {
     }
   };
 
-  const handleInputChange = (field: keyof FormData, value: string) => {
+  const handleInputChange = (field: keyof ContactFormData, value: string) => {
     setFormData((prev) => ({ ...prev, [field]: value }));
     // Clear error when user starts typing
     if (errors[field as keyof FormErrors]) {
@@ -260,6 +256,14 @@ export function ContactSection() {
                       onSubmit={handleSubmit}
                       className="space-y-5"
                     >
+                      <input
+                        type="text"
+                        name="website"
+                        tabIndex={-1}
+                        autoComplete="off"
+                        className="hidden"
+                        aria-hidden="true"
+                      />
                       {submitStatus === "error" && (
                         <motion.div
                           initial={{ opacity: 0, y: -10 }}
@@ -286,6 +290,9 @@ export function ContactSection() {
                           <input
                             type="text"
                             id="name"
+                            name="name"
+                            autoComplete="name"
+                            required
                             value={formData.name}
                             onChange={(e) =>
                               handleInputChange("name", e.target.value)
@@ -316,6 +323,9 @@ export function ContactSection() {
                           <input
                             type="email"
                             id="email"
+                            name="email"
+                            autoComplete="email"
+                            required
                             value={formData.email}
                             onChange={(e) =>
                               handleInputChange("email", e.target.value)
@@ -349,6 +359,8 @@ export function ContactSection() {
                         <input
                           type="tel"
                           id="phone"
+                          name="phone"
+                          autoComplete="tel"
                           value={formData.phone}
                           onChange={(e) =>
                             handleInputChange("phone", e.target.value)
@@ -369,6 +381,9 @@ export function ContactSection() {
                         </label>
                         <textarea
                           id="message"
+                          name="message"
+                          required
+                          minLength={10}
                           rows={5}
                           value={formData.message}
                           onChange={(e) =>
