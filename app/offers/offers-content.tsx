@@ -1,212 +1,108 @@
 "use client";
 
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
+import { motion } from "framer-motion";
 import { Navbar } from "@/components/navbar";
 import { Footer } from "@/components/footer";
 import { useI18n } from "@/lib/i18n";
-import { ChevronDown, Calendar, Coffee, Utensils, Waves, Wine, Flame, Gift, Sparkles } from "lucide-react";
+import { resizeImage } from "@/lib/gallery-images";
+import { BOOKING_PHONE, conditionIcons, useActiveOffers, type Offer } from "@/lib/offers";
+import { Gift, Phone, Calendar, Info } from "lucide-react";
 
-interface Offer {
-  id: string;
-  titleBg: string;
-  titleEn: string;
-  subtitleBg: string;
-  subtitleEn: string;
-  descriptionBg: string;
-  descriptionEn: string;
-  image: string;
-  benefits: {
-    icon: React.ReactNode;
-    textBg: string;
-    textEn: string;
-  }[];
-  validityBg: string;
-  validityEn: string;
-  badgeBg?: string;
-  badgeEn?: string;
-}
+const EASE = [0.25, 0.1, 0.25, 1] as const;
 
-const offers: Offer[] = [
-  {
-    id: "weekend",
-    titleBg: "Уикенд Оферта",
-    titleEn: "Weekend Offer",
-    subtitleBg: "Отпуснете се и се насладете на релаксиращ уикенд в сърцето на Берковица!",
-    subtitleEn: "Relax and enjoy a rejuvenating weekend in the heart of Berkovitsa!",
-    descriptionBg: "Перфектният уикенд пакет за двама, включващ настаняване, закуска и достъп до всички удобства на хотела.",
-    descriptionEn: "The perfect weekend package for two, including accommodation, breakfast, and access to all hotel amenities.",
-    image: "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/639f53fb-d6b7-4348-8fdd-5b1bc8d77700/w=1000",
-    benefits: [
-      { icon: <Calendar className="w-5 h-5" />, textBg: "2 нощувки в двойна стая", textEn: "2 nights in a double room" },
-      { icon: <Coffee className="w-5 h-5" />, textBg: "Закуска за двама", textEn: "Breakfast for two" },
-      { icon: <Utensils className="w-5 h-5" />, textBg: "Ваучер за обяд на стойност €10 за всеки ден", textEn: "€10 lunch voucher for each day" },
-      { icon: <Waves className="w-5 h-5" />, textBg: "Ползване на басейн", textEn: "Pool access" },
-    ],
-    validityBg: "Валидна за настаняване: петък, събота и неделя",
-    validityEn: "Valid for check-in: Friday, Saturday and Sunday",
-    badgeBg: "Популярна",
-    badgeEn: "Popular",
-  },
-  {
-    id: "holiday",
-    titleBg: "Празнична Оферта",
-    titleEn: "Holiday Offer",
-    subtitleBg: "Отпразнувайте специалните моменти с уют, вкусно вино и СПА релакс!",
-    subtitleEn: "Celebrate special moments with comfort, fine wine and SPA relaxation!",
-    descriptionBg: "Перфектният повод да съчетаете празник, почивка и пълноценен релакс в спокойна и уютна атмосфера.",
-    descriptionEn: "The perfect opportunity to combine celebration, rest and complete relaxation in a peaceful and cozy atmosphere.",
-    image: "https://imagedelivery.net/35no9GFfwq2slSYoRYVHtA/6028a250-253d-4fc0-3ac4-5e6911131c00/w=1000",
-    benefits: [
-      { icon: <Gift className="w-5 h-5" />, textBg: "Подарък при минимум 3 нощувки", textEn: "Gift with minimum 3 nights stay" },
-      { icon: <Wine className="w-5 h-5" />, textBg: "Бутилка вино", textEn: "Bottle of wine" },
-      { icon: <Flame className="w-5 h-5" />, textBg: "Ваучер за сауна", textEn: "Sauna voucher" },
-    ],
-    validityBg: "Валидна за: 1 февруари (Трифон Зарезан), 14 февруари (Св. Валентин), 1 март (Баба Марта), 8 март (Ден на жената)",
-    validityEn: "Valid for: February 1st (Trifon Zarezan), February 14th (Valentine's Day), March 1st (Baba Marta), March 8th (Women's Day)",
-    badgeBg: "Празнична",
-    badgeEn: "Festive",
-  },
-];
-
-function OfferCard({ offer, isExpanded, onToggle, language }: { 
-  offer: Offer; 
-  isExpanded: boolean; 
-  onToggle: () => void;
-  language: string;
-}) {
-  const title = language === "bg" ? offer.titleBg : offer.titleEn;
-  const subtitle = language === "bg" ? offer.subtitleBg : offer.subtitleEn;
-  const description = language === "bg" ? offer.descriptionBg : offer.descriptionEn;
-  const validity = language === "bg" ? offer.validityBg : offer.validityEn;
-  const badge = language === "bg" ? offer.badgeBg : offer.badgeEn;
-  const bookNow = language === "bg" ? "Резервирайте" : "Book Now";
+function OfferFeature({ offer, index }: { offer: Offer; index: number }) {
+  const { language } = useI18n();
+  const l = (text: { bg: string; en: string }) => text[language];
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
+    <motion.article
+      initial={{ opacity: 0, y: 30 }}
       animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5 }}
-      className="bg-white rounded-2xl shadow-lg overflow-hidden border border-[var(--brand-beige)]"
+      transition={{ duration: 0.7, ease: EASE, delay: 0.1 + index * 0.1 }}
+      className="bg-white rounded-3xl shadow-[0_30px_80px_-40px_rgba(74,63,53,0.45)] overflow-hidden border border-[var(--brand-beige)] grid lg:grid-cols-[5fr_6fr]"
     >
-      {/* Image Header */}
-      <div className="relative bg-[var(--brand-beige)]/20">
-        <img 
-          src={offer.image} 
-          alt={title}
-          className="w-full h-auto transition-transform duration-500 hover:scale-[1.02]"
+      {/* Artwork */}
+      <div className="relative min-h-[300px] sm:min-h-[380px] lg:min-h-full">
+        <img
+          src={resizeImage(offer.image, 1400)}
+          srcSet={`${resizeImage(offer.image, 800)} 800w, ${resizeImage(offer.image, 1400)} 1400w`}
+          sizes="(min-width: 1024px) 45vw, 100vw"
+          alt=""
+          className="absolute inset-0 w-full h-full object-cover"
         />
-        {badge && (
-          <span className="absolute top-4 left-4 px-3 py-1 text-xs font-medium bg-[var(--brand-brown)] text-white rounded-full shadow-lg">
-            {badge}
-          </span>
-        )}
+        <div className="absolute inset-0 bg-gradient-to-t from-[#2a211a]/85 via-[#2a211a]/25 to-transparent" />
+        <span className="absolute top-5 left-5 inline-flex items-center gap-2 rounded-full bg-white/90 backdrop-blur px-3.5 py-1.5 text-xs font-medium tracking-wider uppercase text-[var(--brand-brown)]">
+          <Gift className="w-3.5 h-3.5" />
+          {l(offer.badge)}
+        </span>
+        <div className="absolute bottom-0 left-0 right-0 p-6 sm:p-8 text-white">
+          <p className="font-cormorant text-[5.5rem] sm:text-[7rem] leading-none tracking-tight">
+            {offer.highlight}
+          </p>
+          <p className="mt-2 text-white/85 text-sm sm:text-base max-w-xs">{l(offer.headline)}</p>
+        </div>
       </div>
 
-      {/* Card Header - Always Visible */}
-      <button
-        onClick={onToggle}
-        className="w-full p-6 sm:p-8 text-left focus:outline-none group"
-      >
-        <div className="flex items-start justify-between gap-4">
-          <div className="flex-1">
-            <div className="flex items-center gap-2 mb-2">
-              <Sparkles className="w-5 h-5 text-[var(--brand-brown)]/60" />
-            </div>
-            <h3 className="text-2xl sm:text-3xl font-cormorant text-[var(--brand-brown)] mb-2 group-hover:text-[var(--brand-brown)]/80 transition-colors">
-              {title}
-            </h3>
-            <p className="text-[var(--brand-brown)]/70 text-sm sm:text-base">
-              {subtitle}
-            </p>
-          </div>
-          <motion.div
-            animate={{ rotate: isExpanded ? 180 : 0 }}
-            transition={{ duration: 0.3 }}
-            className="flex-shrink-0 w-10 h-10 rounded-full bg-[var(--brand-beige)] flex items-center justify-center"
+      {/* Details */}
+      <div className="p-6 sm:p-10 lg:p-12 flex flex-col">
+        <h2 className="font-cormorant text-3xl sm:text-4xl lg:text-[2.75rem] leading-[1.1] text-[var(--brand-brown)] mb-5">
+          {l(offer.title)}
+        </h2>
+        <p className="text-[var(--brand-brown)]/75 leading-relaxed mb-8">{l(offer.description)}</p>
+
+        <ul className="grid gap-3 sm:grid-cols-3 mb-8">
+          {offer.conditions.map((condition) => {
+            const Icon = conditionIcons[condition.icon];
+            return (
+              <li
+                key={condition.icon}
+                className="flex sm:flex-col items-center sm:items-start gap-3 rounded-2xl bg-[var(--brand-beige)]/35 p-4"
+              >
+                <span className="w-10 h-10 shrink-0 rounded-full bg-white flex items-center justify-center text-[var(--brand-brown)]">
+                  <Icon className="w-5 h-5" />
+                </span>
+                <span className="text-sm font-medium text-[var(--brand-brown)] leading-snug">
+                  {l(condition.text)}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+
+        <div className="flex flex-col sm:flex-row gap-3 mb-8">
+          <a
+            href={BOOKING_PHONE.href}
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-[var(--brand-brown)] text-white py-4 px-6 font-medium transition-colors hover:bg-[var(--brand-brown)]/90"
           >
-            <ChevronDown className="w-5 h-5 text-[var(--brand-brown)]" />
-          </motion.div>
+            <Phone className="w-4 h-4" />
+            <span className="whitespace-nowrap">{BOOKING_PHONE.display}</span>
+          </a>
+          <a
+            href="/booking"
+            className="flex-1 inline-flex items-center justify-center gap-2 rounded-xl border border-[var(--brand-brown)]/20 text-[var(--brand-brown)] py-4 px-6 font-medium transition-colors hover:bg-[var(--brand-beige)]/40"
+          >
+            <Calendar className="w-4 h-4" />
+            {language === "bg" ? "Онлайн резервация" : "Book online"}
+          </a>
         </div>
-      </button>
 
-      {/* Expandable Content */}
-      <AnimatePresence>
-        {isExpanded && (
-          <motion.div
-            initial={{ height: 0, opacity: 0 }}
-            animate={{ height: "auto", opacity: 1 }}
-            exit={{ height: 0, opacity: 0 }}
-            transition={{ duration: 0.3, ease: "easeInOut" }}
-            className="overflow-hidden"
-          >
-            <div className="px-6 sm:px-8 pb-6 sm:pb-8 border-t border-[var(--brand-beige)]">
-              <div className="pt-6">
-                <p className="text-[var(--brand-brown)]/80 mb-6">
-                  {description}
-                </p>
-
-                {/* Benefits List */}
-                <div className="space-y-3 mb-6">
-                  {offer.benefits.map((benefit, index) => (
-                    <motion.div
-                      key={index}
-                      initial={{ opacity: 0, x: -10 }}
-                      animate={{ opacity: 1, x: 0 }}
-                      transition={{ delay: index * 0.1 }}
-                      className="flex items-center gap-3 text-[var(--brand-brown)]"
-                    >
-                      <div className="w-10 h-10 rounded-full bg-[var(--brand-beige)]/50 flex items-center justify-center text-[var(--brand-brown)]">
-                        {benefit.icon}
-                      </div>
-                      <span className="font-medium">
-                        {language === "bg" ? benefit.textBg : benefit.textEn}
-                      </span>
-                    </motion.div>
-                  ))}
-                </div>
-
-                {/* Validity */}
-                <div className="p-4 bg-[var(--brand-beige)]/30 rounded-xl mb-6">
-                  <p className="text-sm text-[var(--brand-brown)]/70 flex items-center gap-2">
-                    <Calendar className="w-4 h-4" />
-                    {validity}
-                  </p>
-                </div>
-
-                {/* Book Now Button */}
-                <motion.a
-                  href="/booking"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
-                  className="block w-full py-4 bg-[var(--brand-brown)] text-white font-medium rounded-xl hover:bg-[var(--brand-brown)]/90 transition-colors text-center"
-                >
-                  {bookNow}
-                </motion.a>
-              </div>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.div>
+        <p className="mt-auto flex gap-2 text-xs leading-relaxed text-[var(--brand-brown)]/55 border-t border-[var(--brand-beige)] pt-5">
+          <Info className="w-4 h-4 shrink-0 mt-px" />
+          {l(offer.terms)}
+        </p>
+      </div>
+    </motion.article>
   );
 }
 
 export default function OffersContent() {
-  const { t, language } = useI18n();
-  const [expandedId, setExpandedId] = useState<string | null>("weekend");
-
-  const handleToggle = (id: string) => {
-    setExpandedId(expandedId === id ? null : id);
-  };
+  const { language } = useI18n();
+  const activeOffers = useActiveOffers();
 
   const pageTitle = language === "bg" ? "Специални Оферти" : "Special Offers";
-  const pageSubtitle = language === "bg" 
+  const pageSubtitle = language === "bg"
     ? "Открийте нашите ексклузивни пакети и промоции за незабравим престой"
     : "Discover our exclusive packages and promotions for an unforgettable stay";
-  const autoApplied = language === "bg"
-    ? "Офертите се прилагат автоматично в нашата резервационна система при избор на подходящи дати."
-    : "Offers are automatically applied in our booking system when you select eligible dates.";
 
   return (
     <div className="flex flex-col min-h-screen">
@@ -218,7 +114,7 @@ export default function OffersContent() {
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+            transition={{ duration: 0.8, ease: EASE }}
           >
             <span className="inline-flex items-center gap-2 px-4 py-2 bg-white/10 rounded-full text-white/80 text-sm mb-6">
               <Gift className="w-4 h-4" />
@@ -228,7 +124,7 @@ export default function OffersContent() {
           <motion.h1
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.1 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.1 }}
             className="text-4xl sm:text-6xl font-cormorant text-white mb-4"
           >
             {pageTitle}
@@ -236,7 +132,7 @@ export default function OffersContent() {
           <motion.p
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1], delay: 0.2 }}
+            transition={{ duration: 0.8, ease: EASE, delay: 0.2 }}
             className="text-white/80 text-lg max-w-2xl mx-auto"
           >
             {pageSubtitle}
@@ -244,39 +140,34 @@ export default function OffersContent() {
         </div>
       </section>
 
-      {/* Offers Section */}
-      <section className="flex-grow py-12 sm:py-16 bg-[var(--brand-beige)]/10">
+      {/* Offers */}
+      <section className="flex-grow py-12 sm:py-20 bg-[var(--brand-beige)]/10">
         <div className="container mx-auto px-4">
-          <div className="max-w-3xl mx-auto space-y-6">
-            {offers.map((offer, index) => (
-              <motion.div
-                key={offer.id}
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-              >
-                <OfferCard
-                  offer={offer}
-                  isExpanded={expandedId === offer.id}
-                  onToggle={() => handleToggle(offer.id)}
-                  language={language}
-                />
-              </motion.div>
+          <div className="max-w-6xl mx-auto space-y-10">
+            {activeOffers.map((offer, index) => (
+              <OfferFeature key={offer.id} offer={offer} index={index} />
             ))}
-          </div>
 
-          {/* Auto-applied Notice */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.5 }}
-            className="max-w-3xl mx-auto mt-8"
-          >
-            <p className="text-center text-sm text-[var(--brand-brown)]/60 bg-white/50 rounded-xl p-4">
-              <Sparkles className="w-4 h-4 inline mr-2" />
-              {autoApplied}
-            </p>
-          </motion.div>
+            {activeOffers.length === 0 && (
+              <div className="max-w-xl mx-auto text-center bg-white rounded-2xl p-10 border border-[var(--brand-beige)]">
+                <h2 className="font-cormorant text-3xl text-[var(--brand-brown)] mb-3">
+                  {language === "bg" ? "Очаквайте скоро нови оферти" : "New offers coming soon"}
+                </h2>
+                <p className="text-[var(--brand-brown)]/70 mb-6">
+                  {language === "bg"
+                    ? "В момента нямаме активни промоции. Свържете се с нас за най-добра цена при директна резервация."
+                    : "There are no active promotions right now. Contact us for the best rate when booking direct."}
+                </p>
+                <a
+                  href={BOOKING_PHONE.href}
+                  className="inline-flex items-center gap-2 rounded-xl bg-[var(--brand-brown)] text-white py-3 px-6 font-medium"
+                >
+                  <Phone className="w-4 h-4" />
+                  {BOOKING_PHONE.display}
+                </a>
+              </div>
+            )}
+          </div>
         </div>
       </section>
 
@@ -284,4 +175,3 @@ export default function OffersContent() {
     </div>
   );
 }
-

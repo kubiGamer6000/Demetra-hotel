@@ -4,7 +4,7 @@ import OffersContent from "./offers-content";
 export const metadata: Metadata = {
   title: "Оферти | Special Offers",
   description:
-    "Специални оферти и промоции в Хотел Деметра, Берковица. Уикенд пакети, празнични оферти и СПА релакс. Special offers and promotions at Hotel Demetra, Berkovitsa.",
+    "Есенна оферта в Хотел Деметра, Берковица: плащате 2 нощувки – третата е подарък. Autumn offer at Hotel Demetra, Berkovitsa: pay for 2 nights, the third is on us.",
   openGraph: {
     title: "Оферти | Хотел Деметра",
     description:

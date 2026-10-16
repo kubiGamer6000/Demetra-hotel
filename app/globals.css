@@ -232,3 +232,16 @@
     @apply bg-background text-foreground;
   }
 }
+@layer utilities {
+  .no-scrollbar {
+    scrollbar-width: none;
+  }
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Hide the booking engine's floating button while the spaces gallery is open */
+.space-gallery-open .x-tl-booking-widget-container {
+  display: none !important;
+}
