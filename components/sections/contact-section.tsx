@@ -49,7 +49,7 @@ async function postWithTimeout(
 }
 
 export function ContactSection() {
-  const { t } = useI18n();
+  const { t, language } = useI18n();
   const [formData, setFormData] = useState<ContactFormData>({
     name: "",
     email: "",
@@ -103,6 +103,7 @@ export function ContactSection() {
       phone: formData.phone.trim(),
       message: formData.message.trim(),
       website,
+      language,
     };
 
     try {
