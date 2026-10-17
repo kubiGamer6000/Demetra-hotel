@@ -26,6 +26,28 @@ interface FormErrors {
   message?: string;
 }
 
+const REQUEST_TIMEOUT_MS = 20_000;
+
+async function postWithTimeout(
+  url: string,
+  init: { headers: Record<string, string>; body: string },
+): Promise<boolean> {
+  const controller = new AbortController();
+  const timer = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
+  try {
+    const response = await fetch(url, {
+      method: "POST",
+      ...init,
+      signal: controller.signal,
+    });
+    return response.ok;
+  } catch {
+    return false;
+  } finally {
+    clearTimeout(timer);
+  }
+}
+
 export function ContactSection() {
   const { t } = useI18n();
   const [formData, setFormData] = useState<ContactFormData>({
@@ -71,33 +93,39 @@ export function ContactSection() {
     setIsSubmitting(true);
     setSubmitStatus("idle");
 
-    const website = new window.FormData(e.currentTarget as HTMLFormElement).get(
-      "website",
+    const website = String(
+      new window.FormData(e.currentTarget as HTMLFormElement).get("website") ??
+        "",
     );
+    const payload = {
+      name: formData.name.trim(),
+      email: formData.email.trim(),
+      phone: formData.phone.trim(),
+      message: formData.message.trim(),
+      website,
+    };
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          phone: formData.phone,
-          message: formData.message,
-          website,
-        }),
+      let delivered = await postWithTimeout("/api/contact", {
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload),
       });
 
-      if (response.ok) {
+      // If email delivery fails, store the enquiry in Netlify Forms instead so
+      // it reaches the hotel through the form notification and is never lost.
+      if (!delivered) {
+        delivered = await postWithTimeout("/__forms.html", {
+          headers: { "Content-Type": "application/x-www-form-urlencoded" },
+          body: new URLSearchParams({ "form-name": "contact", ...payload }).toString(),
+        });
+      }
+
+      if (delivered) {
         setSubmitStatus("success");
         setFormData({ name: "", email: "", phone: "", message: "" });
       } else {
         setSubmitStatus("error");
       }
-    } catch {
-      setSubmitStatus("error");
     } finally {
       setIsSubmitting(false);
     }
@@ -272,7 +300,22 @@ export function ContactSection() {
                         >
                           <AlertCircle className="w-5 h-5 flex-shrink-0" />
                           <p className="text-sm">
-                            {t("contact.error.message")}
+                            {t("contact.error.message")}{" "}
+                            <a
+                              href={`mailto:comvers@mail.bg?subject=${encodeURIComponent(
+                                t("contact.error.mailSubject"),
+                              )}&body=${encodeURIComponent(formData.message)}`}
+                              className="font-medium underline underline-offset-2"
+                            >
+                              comvers@mail.bg
+                            </a>{" "}
+                            ·{" "}
+                            <a
+                              href="tel:+359895641292"
+                              className="font-medium underline underline-offset-2 whitespace-nowrap"
+                            >
+                              +359 895 641 292
+                            </a>
                           </p>
                         </motion.div>
                       )}

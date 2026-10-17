@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="bg">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="robots" content="noindex" />
+    <title>Contact form definition</title>
+  </head>
+  <body>
+    <!--
+      Netlify Forms reads this static form at deploy time. The contact section
+      posts here only when /api/contact cannot deliver the email, so enquiries
+      are still stored (and notified) instead of being lost.
+    -->
+    <form name="contact" method="POST" data-netlify="true" netlify-honeypot="website" hidden>
+      <input type="text" name="website" />
+      <input type="text" name="name" />
+      <input type="email" name="email" />
+      <input type="tel" name="phone" />
+      <textarea name="message"></textarea>
+    </form>
+  </body>
+</html>

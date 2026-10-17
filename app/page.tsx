@@ -6,6 +6,7 @@ import { BerkovitsaSection } from "@/components/sections/berkovitsa-section";
 import { GallerySection } from "@/components/sections/gallery-section";
 import { TestimonialsSection } from "@/components/sections/testimonials-section";
 import { FundingSection } from "@/components/sections/funding-section";
+import { OffersSection } from "@/components/sections/offers-section";
 import { CTASection } from "@/components/sections/cta-section";
 import { ContactSection } from "@/components/sections/contact-section";
 import { Footer } from "@/components/footer";
@@ -21,6 +22,7 @@ export default function Home() {
       <GallerySection />
       <TestimonialsSection />
       <FundingSection />
+      <OffersSection />
       <CTASection />
       <ContactSection />
       <Footer />

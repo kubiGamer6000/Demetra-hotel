@@ -10,13 +10,10 @@ export function BerkovitsaSection() {
 
   return (
     <section
-      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden"
+      className="relative min-h-[80vh] flex items-center justify-center overflow-hidden bg-cover bg-center lg:bg-fixed"
       style={{
-        backgroundImage:
-          "url('https://hotel-demetra.com/wp-content/uploads/2025/02/wmremove-transformed.jpeg')",
-        backgroundSize: "cover",
-        backgroundPosition: "center",
-        backgroundAttachment: "fixed",
+        backgroundColor: "#3b4a5c",
+        backgroundImage: "url('/images/berkovitsa-mountains.webp')",
       }}
     >
       <motion.div

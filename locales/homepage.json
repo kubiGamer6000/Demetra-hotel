@@ -161,6 +161,28 @@
     "learnMore": {
       "bg": "Научете повече",
       "en": "Learn More"
+    },
+    "gallery": {
+      "open": {
+        "bg": "Разгледайте снимките",
+        "en": "View the gallery"
+      },
+      "photos": {
+        "bg": "{count} снимки",
+        "en": "{count} photos"
+      },
+      "close": {
+        "bg": "Затвори",
+        "en": "Close"
+      },
+      "previous": {
+        "bg": "Предишна снимка",
+        "en": "Previous photo"
+      },
+      "next": {
+        "bg": "Следваща снимка",
+        "en": "Next photo"
+      }
     }
   },
   "berkovitsa": {
@@ -490,8 +512,12 @@
     },
     "error": {
       "message": {
-        "bg": "Възникна грешка при изпращане на съобщението. Моля, опитайте отново или се свържете директно с нас по телефона.",
-        "en": "There was an error sending your message. Please try again or contact us directly by phone."
+        "bg": "Съобщението не можа да бъде изпратено. Моля, опитайте отново или се свържете с нас директно:",
+        "en": "Your message could not be sent. Please try again or contact us directly:"
+      },
+      "mailSubject": {
+        "bg": "Запитване от сайта",
+        "en": "Website enquiry"
       }
     }
   }
