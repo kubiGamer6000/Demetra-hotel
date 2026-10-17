@@ -10,6 +10,7 @@ interface ContactRequest {
   phone?: unknown;
   message?: unknown;
   website?: unknown;
+  language?: unknown;
 }
 
 interface Enquiry {
@@ -17,6 +18,8 @@ interface Enquiry {
   email: string;
   phone: string;
   message: string;
+  /** Site language the guest was using, so staff know how to reply. */
+  language: "bg" | "en";
 }
 
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -38,29 +41,90 @@ const escapeHtml = (value: string) =>
     .replace(/'/g, "&#39;");
 
 const subjectFor = (enquiry: Enquiry) =>
-  `Запитване от сайта: ${enquiry.name}`;
+  `Запитване от сайта hotel-demetra.com – ${enquiry.name}`;
+
+const receivedAt = () =>
+  new Intl.DateTimeFormat("bg-BG", {
+    timeZone: "Europe/Sofia",
+    dateStyle: "long",
+    timeStyle: "short",
+  }).format(new Date());
+
+const languageNote = (enquiry: Enquiry) =>
+  enquiry.language === "en" ? "Гостът пише от английската версия на сайта." : "";
+
+// Display name for Reply-To, so mail.bg shows who the reply goes to.
+const replyTo = (enquiry: Enquiry) => {
+  const name = enquiry.name.replace(/["<>\r\n\\]/g, "").trim();
+  return name ? `"${name}" <${enquiry.email}>` : enquiry.email;
+};
 
 const textBody = (enquiry: Enquiry) =>
   [
+    "Ново запитване от сайта hotel-demetra.com",
+    "",
     `Име: ${enquiry.name}`,
     `Имейл: ${enquiry.email}`,
-    `Телефон: ${enquiry.phone || "-"}`,
+    `Телефон: ${enquiry.phone || "не е посочен"}`,
+    `Получено: ${receivedAt()}`,
+    languageNote(enquiry),
     "",
+    "Съобщение:",
     enquiry.message,
     "",
-    "--",
-    "Изпратено от формата за контакт на hotel-demetra.com",
-  ].join("\n");
+    "—",
+    "За да отговорите на госта, просто натиснете „Отговор“.",
+  ]
+    .filter((line, index, lines) => line !== "" || lines[index - 1] !== "")
+    .join("\n");
 
-const htmlBody = (enquiry: Enquiry) => `
-  <div style="font-family:Arial,sans-serif;font-size:15px;color:#4A3F35;line-height:1.5">
-    <h2 style="margin:0 0 16px">Ново запитване от сайта</h2>
-    <p style="margin:0"><strong>Име:</strong> ${escapeHtml(enquiry.name)}</p>
-    <p style="margin:0"><strong>Имейл:</strong> <a href="mailto:${escapeHtml(enquiry.email)}">${escapeHtml(enquiry.email)}</a></p>
-    <p style="margin:0 0 16px"><strong>Телефон:</strong> ${escapeHtml(enquiry.phone || "-")}</p>
-    <div style="white-space:pre-wrap;padding:16px;background:#F6F3EE;border-radius:8px">${escapeHtml(enquiry.message)}</div>
-    <p style="margin-top:24px;font-size:12px;color:#8a7f75">Изпратено от формата за контакт на hotel-demetra.com. Отговорете директно на този имейл, за да пишете на госта.</p>
-  </div>`;
+const row = (label: string, value: string) => `
+        <tr>
+          <td style="padding:6px 0;width:96px;color:#8a7f75;font-size:14px;vertical-align:top">${label}</td>
+          <td style="padding:6px 0;color:#4A3F35;font-size:15px">${value}</td>
+        </tr>`;
+
+const htmlBody = (enquiry: Enquiry) => {
+  const name = escapeHtml(enquiry.name);
+  const email = escapeHtml(enquiry.email);
+  const phone = escapeHtml(enquiry.phone);
+  const note = languageNote(enquiry);
+  return `<!doctype html>
+<html lang="bg">
+<body style="margin:0;padding:0;background:#F6F3EE">
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#F6F3EE;padding:24px 12px">
+    <tr><td align="center">
+      <table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="max-width:560px;background:#ffffff;border-radius:12px;font-family:Arial,Helvetica,sans-serif;line-height:1.5">
+        <tr><td style="padding:28px 28px 8px">
+          <p style="margin:0;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:#8a7f75">Хотел Деметра · hotel-demetra.com</p>
+          <h1 style="margin:6px 0 0;font-size:22px;font-weight:normal;color:#4A3F35">Ново запитване от ${name}</h1>
+        </td></tr>
+        <tr><td style="padding:12px 28px">
+          <table role="presentation" width="100%" cellpadding="0" cellspacing="0">${row("Име", name)}${row(
+            "Имейл",
+            `<a href="mailto:${email}" style="color:#4A3F35">${email}</a>`,
+          )}${row(
+            "Телефон",
+            phone
+              ? `<a href="tel:${escapeHtml(enquiry.phone.replace(/[^\d+]/g, ""))}" style="color:#4A3F35">${phone}</a>`
+              : `<span style="color:#8a7f75">не е посочен</span>`,
+          )}${row("Получено", escapeHtml(receivedAt()))}
+          </table>
+          ${note ? `<p style="margin:8px 0 0;font-size:13px;color:#8a7f75">${note}</p>` : ""}
+        </td></tr>
+        <tr><td style="padding:8px 28px 4px">
+          <p style="margin:0 0 8px;font-size:14px;color:#8a7f75">Съобщение</p>
+          <div style="white-space:pre-wrap;padding:16px 18px;background:#F6F3EE;border-radius:8px;color:#4A3F35;font-size:15px">${escapeHtml(enquiry.message)}</div>
+        </td></tr>
+        <tr><td style="padding:20px 28px 28px">
+          <p style="margin:0;font-size:13px;color:#8a7f75">За да отговорите на госта, просто натиснете „Отговор“ – писмото ще отиде директно до ${email}.</p>
+        </td></tr>
+      </table>
+    </td></tr>
+  </table>
+</body>
+</html>`;
+};
 
 // Each sender returns null on success or a short reason for the logs on failure.
 type Sender = (enquiry: Enquiry, recipient: string) => Promise<string | null>;
@@ -79,7 +143,7 @@ const sendWithResend: Sender = async (enquiry, recipient) => {
     body: JSON.stringify({
       from,
       to: [recipient],
-      reply_to: enquiry.email,
+      reply_to: replyTo(enquiry),
       subject: subjectFor(enquiry),
       text: textBody(enquiry),
       html: htmlBody(enquiry),
@@ -155,6 +219,7 @@ export default async (request: Request) => {
     email: typeof body.email === "string" ? body.email.trim() : "",
     phone: typeof body.phone === "string" ? body.phone.trim() : "",
     message: typeof body.message === "string" ? body.message.trim() : "",
+    language: body.language === "en" ? "en" : "bg",
   };
 
   if (
