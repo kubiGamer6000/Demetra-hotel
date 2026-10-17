@@ -53,10 +53,22 @@ const receivedAt = () =>
 const languageNote = (enquiry: Enquiry) =>
   enquiry.language === "en" ? "Гостът пише от английската версия на сайта." : "";
 
+// Guest name made safe for use as an email display name.
+const displayName = (enquiry: Enquiry) =>
+  enquiry.name.replace(/["<>\r\n\\]/g, "").trim().slice(0, 60);
+
 // Display name for Reply-To, so mail.bg shows who the reply goes to.
 const replyTo = (enquiry: Enquiry) => {
-  const name = enquiry.name.replace(/["<>\r\n\\]/g, "").trim();
+  const name = displayName(enquiry);
   return name ? `"${name}" <${enquiry.email}>` : enquiry.email;
+};
+
+// Show the guest's name in the inbox's From column; the address itself must
+// stay on our verified domain (e.g. "Мария Иванова чрез hotel-demetra.com").
+const fromHeader = (configured: string, enquiry: Enquiry) => {
+  const address = configured.match(/<([^>]+)>/)?.[1] ?? configured.trim();
+  const name = displayName(enquiry);
+  return name ? `"${name} чрез hotel-demetra.com" <${address}>` : configured;
 };
 
 const textBody = (enquiry: Enquiry) =>
@@ -141,7 +153,7 @@ const sendWithResend: Sender = async (enquiry, recipient) => {
       "Content-Type": "application/json",
     },
     body: JSON.stringify({
-      from,
+      from: fromHeader(from, enquiry),
       to: [recipient],
       reply_to: replyTo(enquiry),
       subject: subjectFor(enquiry),
